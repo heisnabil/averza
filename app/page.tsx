@@ -9,16 +9,12 @@ import PricingSection from "@/components/pricing-section";
 import FAQs from "@/components/faqs-1";
 import CinematicFooter from "@/components/motion-footer";
 import GSAPAnimations from "@/components/gsap-animations";
-import InertiaCursor from "@/components/inertia-cursor";
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#000000] font-sans antialiased text-white selection:bg-[#2563EB]/30 overflow-x-hidden">
       {/* Header Navigation */}
       <Header />
-
-      {/* Premium Inertia Cursor */}
-      <InertiaCursor />
 
       {/* GSAP Premium Scroll Animations */}
       <GSAPAnimations />

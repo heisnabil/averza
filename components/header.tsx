@@ -42,20 +42,28 @@ export default function Header() {
         >
           <div className="relative grid grid-cols-2 lg:grid-cols-3 items-center w-full">
             {/* Column 1: Logo and Name (Left-aligned) */}
-            <div className="flex justify-start items-center">
-              <Link href="/" className="flex items-center space-x-3">
-                <div className="relative w-8 h-8 rounded-full overflow-hidden border border-slate-800 bg-slate-950 flex-shrink-0">
+            <div className="flex justify-start items-center min-w-0">
+              <Link href="/" className="flex items-center space-x-2 min-w-0 group">
+                <div className="relative w-10 h-10 flex-shrink-0">
+                  {/* Subtle glow behind logo */}
+                  <div className="absolute inset-0 bg-[#2563EB]/20 rounded-full blur-md group-hover:bg-[#38BDF8]/30 transition-all duration-500" />
                   <Image
-                    src="/logos/infispark_logo_dark.png"
-                    alt="INFISPARK Logo"
-                    fill
-                    sizes="32px"
-                    className="object-cover"
+                    src="/logos/infispark_icon.png"
+                    alt="Infispark Technology Logo"
+                    width={40}
+                    height={40}
+                    style={{ mixBlendMode: 'screen' }}
+                    className="relative object-contain drop-shadow-[0_0_6px_rgba(56,189,248,0.4)] group-hover:drop-shadow-[0_0_10px_rgba(56,189,248,0.6)] transition-all duration-500 mix-blend-screen"
                   />
                 </div>
-                <span className="text-lg font-black tracking-tight text-white uppercase">
-                  INFISPARK
-                </span>
+                <div className="flex flex-col leading-none flex-shrink-0">
+                  <span className="text-sm font-black tracking-tight text-white uppercase">
+                    INFISPARK
+                  </span>
+                  <span className="text-[8px] font-bold tracking-[0.15em] text-blue-400/80 uppercase">
+                    TECHNOLOGIES LLP
+                  </span>
+                </div>
               </Link>
             </div>
 
@@ -86,7 +94,6 @@ export default function Header() {
                 {menuState ? <X className="size-6" /> : <Menu className="size-6" />}
               </button>
               {/* Empty spacer for desktop symmetry */}
-              <div className="hidden lg:block w-8" />
             </div>
           </div>
 

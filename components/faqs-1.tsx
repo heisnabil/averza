@@ -7,28 +7,23 @@ import Link from 'next/link'
 const faqItems = [
     {
         id: 'item-1',
-        question: 'Do you build software from scratch?',
-        answer: 'Yes. Every solution is engineered specifically for your business requirements.',
+        question: 'Do you build custom software from scratch or use templates?',
+        answer: 'Every solution is engineered specifically for your business requirements. No templates, no bloat, just pure performance built for your operations.',
     },
     {
         id: 'item-2',
-        question: 'Can you integrate AI into existing software?',
-        answer: 'Yes. We integrate LLMs, workflow automation and intelligent assistants into existing platforms.',
+        question: 'What is your standard SLA and post-launch support structure?',
+        answer: 'We offer SLA-backed proactive monitoring, daily backups, code updates, and direct developer communication channels to keep your app secure.',
     },
     {
         id: 'item-3',
-        question: 'Which industries do you serve?',
-        answer: 'Healthcare, Retail, Manufacturing, Education, Logistics, Finance and more.',
+        question: 'Can you integrate AI models and WhatsApp APIs into existing systems?',
+        answer: 'Yes. We integrate Large Language Models, voice processing engines, and official WhatsApp Business API notification workflows into your existing CRM/ERP environments.',
     },
     {
         id: 'item-4',
-        question: 'Do you provide post-launch support?',
-        answer: 'Yes. We offer maintenance, monitoring, feature updates and SLA-backed support.',
-    },
-    {
-        id: 'item-5',
-        question: 'How long does development take?',
-        answer: 'Depending on complexity, projects typically range from a few weeks for MVPs to several months for enterprise systems.',
+        question: 'What is the typical timeline for an enterprise custom software project?',
+        answer: 'Depending on complexity, projects typically range from 4 to 8 weeks for standard customized architectures and MVPs, and up to several months for larger enterprise environments.',
     },
 ]
 

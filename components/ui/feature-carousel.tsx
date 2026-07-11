@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// 8 features specified for Infispark
+// 8 features specified for Infispark Technology
 const FEATURES = [
   {
     id: "enterprise-software",
@@ -252,7 +252,7 @@ export default function FeatureCarousel() {
                   >
                     <div className="w-2 h-2 rounded-full bg-[#38BDF8] shadow-[0_0_10px_#38BDF8]" />
                     <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
-                      INFISPARK
+                      INFISPARK TECHNOLOGY
                     </span>
                   </div>
                 </motion.div>

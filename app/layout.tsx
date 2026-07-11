@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Infispark - Custom Software Development & AI Solutions Company",
+  title: "INFISPARK TECHNOLOGIES LLP | Custom Software Development & IT Solutions Company India",
   description:
-    "Custom Software, AI Workflows, Mobile Apps, Enterprise Platforms, Cloud Infrastructure & Automation — built specifically for your business.",
+    "INFISPARK TECHNOLOGIES LLP is India's leading custom software development and IT solutions provider. We design bespoke web platforms, cross-platform mobile apps, AI-integrated software, e-commerce systems, and official WhatsApp API integrations.",
 };
 
 export default function RootLayout({

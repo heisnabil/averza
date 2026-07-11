@@ -317,9 +317,9 @@ export default function CinematicFooter() {
               <div className="flex flex-col items-center md:items-start">
                 <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Contact Us</span>
                 <div className="flex flex-col gap-2 items-center md:items-start text-[#94A3B8] text-sm">
-                  <span>Email: <a href="mailto:info@infispark.in" className="hover:text-white transition-colors">info@infispark.in</a></span>
-                  <span>Phone: <a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a></span>
-                  <span className="text-center md:text-left">Office: Mumbai, Maharashtra, India</span>
+                  <span>Email: <a href="mailto:infisparks@gmail.com" className="hover:text-white transition-colors">infisparks@gmail.com</a></span>
+                  <span>Phone: <a href="tel:+919958399157" className="hover:text-white transition-colors">+91 99583 99157</a> / <a href="tel:+918108821353" className="hover:text-white transition-colors">+91 81088 21353</a></span>
+                  <span className="text-center md:text-left">Office: BKC G-Block, Bandra, Mumbai — 400051</span>
                 </div>
               </div>
             </div>
@@ -330,7 +330,7 @@ export default function CinematicFooter() {
             
             {/* Copyright */}
             <div className="text-[#94A3B8] text-[10px] md:text-xs font-semibold tracking-widest uppercase order-2 md:order-1">
-              © 2026 INFISPARK. All rights reserved.
+              © 2026 INFISPARK TECHNOLOGIES LLP. All rights reserved.
             </div>
 
             {/* "Made with Love" Badge */}
@@ -338,7 +338,7 @@ export default function CinematicFooter() {
               <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted with</span>
               <span className="animate-footer-heartbeat text-sm md:text-base text-blue-500">❤</span>
               <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">by</span>
-              <span className="text-white font-black text-xs md:text-sm tracking-normal ml-1">INFISPARK</span>
+              <span className="text-white font-black text-xs md:text-sm tracking-normal ml-1">INFISPARK TECHNOLOGIES LLP</span>
             </div>
 
             {/* Back to top */}

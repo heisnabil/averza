@@ -9,7 +9,7 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "Infispark delivered a platform that streamlined our operations and reduced manual work.",
+    testimonial: "Infispark Technology delivered a platform that streamlined our operations and reduced manual work.",
     by: "Arjun, CTO of TechCorp",
     imgSrc: "/images/avatar-1.jpg",
   },

@@ -16,7 +16,7 @@ const plans = [
     ],
     cta: "Get Starter Quote",
     type: "whatsapp",
-    message: "Hi Infispark, I am interested in the Starter plan for MVP / Web Application development.",
+    message: "Hi Infispark Technology, I am interested in the Starter plan for MVP / Web Application development.",
     icon: MessageCircle,
     popular: false,
   },
@@ -50,15 +50,15 @@ const plans = [
     ],
     cta: "Consult Our Team",
     type: "whatsapp",
-    message: "Hi Infispark, I would like to schedule an enterprise custom software & AI automation consultation.",
+    message: "Hi Infispark Technology, I would like to schedule an enterprise custom software & AI automation consultation.",
     icon: Calendar,
     popular: false,
   },
 ];
 
 export default function PricingSection() {
-  const whatsappNumber = "918108821353";
-  const phoneNumber = "+918108821353";
+  const whatsappNumber = "919958399157";
+  const phoneNumber = "+919958399157";
 
   return (
     <section className="bg-[#000000] py-24 border-t border-slate-900 relative overflow-hidden">

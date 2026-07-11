@@ -7,6 +7,7 @@ import ProcessStepper from "@/components/process-stepper";
 import StaggerTestimonials from "@/components/stagger-testimonials";
 import PricingSection from "@/components/pricing-section";
 import FAQs from "@/components/faqs-1";
+import ContactSection from "@/components/contact-section";
 import CinematicFooter from "@/components/motion-footer";
 import GSAPAnimations from "@/components/gsap-animations";
 
@@ -58,6 +59,9 @@ export default function Home() {
       <div id="faq" className="bg-[#000000]">
         <FAQs />
       </div>
+
+      {/* 7.5. Contact */}
+      <ContactSection />
 
       {/* 8. Footer */}
       <CinematicFooter />

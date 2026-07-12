@@ -30,7 +30,7 @@ A high-performance, dark-themed landing page built for **INFISPARK TECHNOLOGIES 
 
 ```bash
 npm install
-npm run dev       # Development → http://localhost:3000
+npm run dev       # Development -- http://localhost:3000
 npm run build     # Production build
 npm start         # Start production server
 ```
@@ -38,10 +38,10 @@ npm start         # Start production server
 ## Project Structure
 
 ```
-app/              → Next.js App Router pages & layout
-components/       → All UI sections (header, hero, footer, etc.)
-components/ui/    → Reusable primitives (accordion, carousel, shapes)
-public/logos/     → Brand assets & partner logos
+app/              -- Next.js App Router pages & layout
+components/       -- All UI sections (header, hero, footer, etc.)
+components/ui/    -- Reusable primitives (accordion, carousel, shapes)
+public/logos/     -- Brand assets & partner logos
 ```
 
 ## Author

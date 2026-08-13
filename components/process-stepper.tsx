@@ -121,7 +121,7 @@ export default function ProcessStepper() {
             {activeStep === steps.length && (
               <Box sx={{ p: 3, textAlign: "center", bgcolor: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", mt: 2 }}>
                 <Typography className="text-white font-medium mb-3">
-                  That's how we work — ready to start your project?
+                  That&apos;s how we work — ready to start your project?
                 </Typography>
                 <Button onClick={handleReset} sx={{ textTransform: "none" }}>
                   View Process Again

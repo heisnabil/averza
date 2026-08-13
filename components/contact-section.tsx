@@ -52,8 +52,9 @@ export default function ContactSection() {
 
       setSubmitted(true);
       setFormData({ name: "", email: "", company: "", message: "", consent: false, website: "" });
-    } catch (err: any) {
-      setSubmitError(err.message || "Something went wrong while sending your enquiry. Please try again.");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Something went wrong while sending your enquiry. Please try again.";
+      setSubmitError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -78,7 +79,7 @@ export default function ContactSection() {
         <div className="text-center mb-16 md:mb-20">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
             <span className="text-[10px] sm:text-xs text-[#8B1A22] tracking-wider font-semibold uppercase">
-              Let's Talk
+              Let&apos;s Talk
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
@@ -188,7 +189,7 @@ export default function ContactSection() {
                   Inquiry Received Successfully!
                 </h4>
                 <p className="text-slate-400 text-sm max-w-xs">
-                  Thanks — your enquiry has been received. We'll get back to you soon.
+                  Thanks — your enquiry has been received. We&apos;ll get back to you soon.
                 </p>
               </div>
             ) : (

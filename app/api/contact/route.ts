@@ -314,7 +314,7 @@ Submitted from: AVERZO Website
     }
 
     return NextResponse.json({ success: true, id: data?.id });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Unhandle exception in contact API:", err);
     return NextResponse.json(
       { error: "Something went wrong while sending your enquiry. Please try again." },

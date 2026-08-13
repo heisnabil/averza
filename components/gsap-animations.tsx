@@ -501,7 +501,6 @@ export default function GSAPAnimations() {
         document.body.appendChild(speedLineContainer);
 
         // Track scroll velocity
-        let lastScrollY = window.scrollY;
         let velocity = 0;
 
         ScrollTrigger.create({

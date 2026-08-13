@@ -22,25 +22,24 @@ const technologies = [
   { name: "Docker", color: "text-[#2496ED]" },
 ];
 
-export default function LogoCloud() {
-  // Render a single row of tech badges
-  const TechRow = ({ keyPrefix }: { keyPrefix: string }) => (
-    <>
-      {technologies.map((tech, idx) => (
-        <div
-          key={`${keyPrefix}-${idx}`}
-          className="flex-shrink-0 mx-3"
-        >
-          <div className="px-5 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#8B1A22]/30 hover:bg-white/[0.08] transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
-            <span className={cn("text-xs sm:text-sm font-bold tracking-wide uppercase whitespace-nowrap", tech.color)}>
-              {tech.name}
-            </span>
-          </div>
+const TechRow = ({ keyPrefix }: { keyPrefix: string }) => (
+  <>
+    {technologies.map((tech, idx) => (
+      <div
+        key={`${keyPrefix}-${idx}`}
+        className="flex-shrink-0 mx-3"
+      >
+        <div className="px-5 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#8B1A22]/30 hover:bg-white/[0.08] transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+          <span className={cn("text-xs sm:text-sm font-bold tracking-wide uppercase whitespace-nowrap", tech.color)}>
+            {tech.name}
+          </span>
         </div>
-      ))}
-    </>
-  );
+      </div>
+    ))}
+  </>
+);
 
+export default function LogoCloud() {
   return (
     <section className="relative bg-[#000000] py-16 sm:py-20 overflow-hidden">
       {/* Top/bottom subtle borders */}

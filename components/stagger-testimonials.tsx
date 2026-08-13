@@ -168,7 +168,7 @@ export default function StaggerTestimonials() {
           What We Can Build
         </h2>
         <p className="text-[#94A3B8] max-w-lg mx-auto text-sm sm:text-base md:text-lg">
-          Real solutions for real businesses — here's what AVERZA can create for your operations.
+          Real solutions for real businesses — here&apos;s what AVERZA can create for your operations.
         </p>
       </div>
 

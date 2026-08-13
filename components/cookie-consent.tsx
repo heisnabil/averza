@@ -27,8 +27,11 @@ export default function CookieConsent() {
       return () => clearTimeout(timer);
     } else {
       try {
-        setPreferences(JSON.parse(consent));
-      } catch (e) {
+        const parsed = JSON.parse(consent);
+        setTimeout(() => {
+          setPreferences(parsed);
+        }, 0);
+      } catch {
         // Fallback if malformed
       }
     }

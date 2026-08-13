@@ -10,21 +10,53 @@ export default function ContactSection() {
     company: "",
     message: "",
     consent: false,
+    website: "", // Honeypot
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.consent) {
       alert("Please consent to the privacy policy before submitting.");
       return;
     }
-    // Simulate submit
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", message: "", consent: false });
-      setSubmitted(false);
-    }, 3000);
+
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          businessName: formData.company,
+          message: formData.message,
+          website: formData.website,
+          phone: "",
+          businessType: "",
+          service: "",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Something went wrong while sending your enquiry. Please try again.");
+      }
+
+      setSubmitted(true);
+      setFormData({ name: "", email: "", company: "", message: "", consent: false, website: "" });
+    } catch (err: any) {
+      setSubmitError(err.message || "Something went wrong while sending your enquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const whatsappNumber = "918591484058";
@@ -153,10 +185,10 @@ export default function ContactSection() {
                   <Send className="w-6 h-6 animate-pulse" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">
-                  Inquiry Simulated Successfully!
+                  Inquiry Received Successfully!
                 </h4>
                 <p className="text-slate-400 text-sm max-w-xs">
-                  This demo form has successfully simulated message delivery. For real inquiries, please reach out via email or WhatsApp.
+                  Thanks — your enquiry has been received. We'll get back to you soon.
                 </p>
               </div>
             ) : (
@@ -231,11 +263,30 @@ export default function ContactSection() {
                   </label>
                 </div>
 
+                {/* Honeypot field for spam prevention - hidden from real users */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  />
+                </div>
+
+                {submitError && (
+                  <p className="text-red-500 text-xs font-semibold mt-1">
+                    {submitError}
+                  </p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#650108] hover:bg-[#520006] text-white font-bold transition-all text-sm tracking-wide shadow-lg shadow-[#650108]/10 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-4 rounded-xl bg-[#650108] hover:bg-[#520006] text-white font-bold transition-all text-sm tracking-wide shadow-lg shadow-[#650108]/10 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Request a Consultation
+                  {isSubmitting ? "Sending..." : "Request a Consultation"}
                 </button>
               </form>
             )}

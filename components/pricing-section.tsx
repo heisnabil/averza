@@ -1,64 +1,64 @@
 "use client";
 
 import React from "react";
-import { Check, MessageCircle, Phone, Calendar } from "lucide-react";
+import { Check, MessageCircle, ArrowRight, Layers } from "lucide-react";
 
 const plans = [
   {
     name: "Starter",
-    description: "For Startups",
+    description: "For Local Businesses",
     features: [
-      "MVP Development",
-      "Web Application",
-      "Basic Support",
-      "Standard Security",
-      "1 Revision cycle",
+      "Business Website",
+      "Google Business Profile Setup",
+      "Basic SEO Setup",
+      "Mobile Responsive Design",
+      "1 Revision Cycle",
     ],
-    cta: "Get Starter Quote",
+    cta: "Get Started",
     type: "whatsapp",
-    message: "Hi Infispark Technology, I am interested in the Starter plan for MVP / Web Application development.",
+    message: "Hi AVERZA, I'm interested in the Starter plan for my business — website and Google Business setup.",
     icon: MessageCircle,
     popular: false,
   },
   {
     name: "Growth",
-    description: "For SMEs",
+    description: "For Growing SMEs",
     features: [
-      "Custom Software",
-      "AI Integration",
-      "Mobile App",
-      "API Integration",
-      "24/7 Priority Support",
-      "Scalable Architecture",
+      "Custom Software or Mobile App",
+      "Advanced Website Development",
+      "Local SEO Strategy",
+      "UI/UX Design",
+      "Cloud Deployment",
+      "Ongoing Support",
     ],
-    cta: "Call Our Sales",
-    type: "call",
-    icon: Phone,
+    cta: "Talk to AVERZA",
+    type: "whatsapp",
+    message: "Hi AVERZA, I'm interested in the Growth plan — custom software, website and SEO services.",
+    icon: ArrowRight,
     popular: true,
   },
   {
-    name: "Enterprise",
-    description: "Large Organizations",
+    name: "Scale",
+    description: "Full Digital Transformation",
     features: [
-      "Dedicated Team",
-      "Enterprise Architecture",
-      "SLA Support",
+      "All Services Included",
+      "Custom Software & Mobile Apps",
+      "Full SEO & Google Business",
+      "Product Design & UI/UX",
+      "Video Content & Reels",
       "Cloud Infrastructure",
-      "AI Automation",
-      "Custom Integrations",
-      "Dedicated Project Manager",
+      "Dedicated Project Lead",
     ],
-    cta: "Consult Our Team",
+    cta: "Start Your Transformation",
     type: "whatsapp",
-    message: "Hi Infispark Technology, I would like to schedule an enterprise custom software & AI automation consultation.",
-    icon: Calendar,
+    message: "Hi AVERZA, I'd like to discuss the Scale plan for a complete digital transformation of my business.",
+    icon: Layers,
     popular: false,
   },
 ];
 
 export default function PricingSection() {
-  const whatsappNumber = "919958399157";
-  const phoneNumber = "+919958399157";
+  const whatsappNumber = "918591484058";
 
   return (
     <section className="bg-[#000000] py-24 border-t border-slate-900 relative overflow-hidden">
@@ -71,17 +71,14 @@ export default function PricingSection() {
             Engagement Models
           </h2>
           <p className="text-[#94A3B8] max-w-lg mx-auto text-base sm:text-lg">
-            Flexible custom software development plans tailored specifically to your organizational scale.
+            Flexible plans tailored to where your business is today and where you want it to go.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-5xl mx-auto">
           {plans.map((plan, index) => {
             const Icon = plan.icon;
-            const buttonLink =
-              plan.type === "whatsapp"
-                ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(plan.message || "")}`
-                : `tel:${phoneNumber}`;
+            const buttonLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(plan.message || "")}`;
 
             return (
               <div
@@ -94,7 +91,7 @@ export default function PricingSection() {
               >
                 {plan.popular && (
                   <span className="absolute top-0 right-8 -translate-y-1/2 bg-[#2563EB] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
-                    Most Popular
+                    Recommended
                   </span>
                 )}
 
@@ -125,8 +122,8 @@ export default function PricingSection() {
                 <div className="mt-8">
                   <a
                     href={buttonLink}
-                    target={plan.type === "whatsapp" ? "_blank" : undefined}
-                    rel={plan.type === "whatsapp" ? "noopener noreferrer" : undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 cursor-pointer inline-flex items-center justify-center gap-2 ${
                       plan.popular
                         ? "bg-[#2563EB] text-white hover:bg-blue-700 shadow-md shadow-blue-500/20"

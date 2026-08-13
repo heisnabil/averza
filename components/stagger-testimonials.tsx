@@ -1,58 +1,63 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Code, Globe, Smartphone, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const SQRT_5000 = Math.sqrt(5000);
 
-const testimonials = [
+const showcaseItems = [
   {
     tempId: 0,
-    testimonial: "Infispark Technology delivered a platform that streamlined our operations and reduced manual work.",
-    by: "Arjun, CTO of TechCorp",
-    imgSrc: "/images/avatar-1.jpg",
+    testimonial: "A restaurant management system with real-time order tracking, table booking and automated inventory alerts — replacing spreadsheets and WhatsApp coordination.",
+    by: "Restaurant & Café Solutions",
+    icon: Code,
+    accent: "from-[#2563EB] to-[#38BDF8]",
   },
   {
     tempId: 1,
-    testimonial: "The AI automation saved our team hours every week.",
-    by: "Priya, Operations Director",
-    imgSrc: "/images/avatar-2.jpg",
+    testimonial: "A responsive business website with integrated appointment booking, local SEO optimization and Google Business Profile setup — helping a clinic get discovered online.",
+    by: "Local Business Websites",
+    icon: Globe,
+    accent: "from-[#6366F1] to-[#818CF8]",
   },
   {
     tempId: 2,
-    testimonial: "Professional team with excellent technical expertise.",
-    by: "Rahul, Product Manager",
-    imgSrc: "/images/avatar-3.jpg",
+    testimonial: "A custom Android application for customer ordering, loyalty point tracking and push notification campaigns — built for a pharmacy chain across Thane.",
+    by: "Mobile App Development",
+    icon: Smartphone,
+    accent: "from-[#10B981] to-[#34D399]",
   },
   {
     tempId: 3,
-    testimonial: "Reliable delivery, transparent communication, and outstanding support.",
-    by: "Sneha, VP of Engineering",
-    imgSrc: "/images/avatar-4.jpg",
+    testimonial: "A complete digital transformation — moving a retail business from WhatsApp-based orders and paper registers to a fully automated inventory and billing system.",
+    by: "Business Automation",
+    icon: BarChart3,
+    accent: "from-[#F59E0B] to-[#FBBF24]",
   },
 ];
 
-interface TestimonialCardProps {
+interface ShowcaseCardProps {
   position: number;
-  testimonial: (typeof testimonials)[0];
+  testimonial: (typeof showcaseItems)[0];
   handleMove: (steps: number) => void;
   cardSize: number;
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
+const ShowcaseCard: React.FC<ShowcaseCardProps> = ({
   position,
   testimonial,
   handleMove,
   cardSize,
 }) => {
   const isCenter = position === 0;
+  const IconComponent = testimonial.icon;
 
   return (
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out select-none",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-6 sm:p-8 transition-all duration-500 ease-in-out select-none",
         isCenter
           ? "z-10 bg-[#2563EB] text-white border-[#2563EB]"
           : "z-0 bg-[#0F172A] text-[#FFFFFF] border-slate-800 hover:border-[#38BDF8]/50"
@@ -81,29 +86,35 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           height: 2,
         }}
       />
-      <img
-        src={testimonial.imgSrc}
-        alt={`${testimonial.by.split(",")[0]}`}
-        className="mb-4 h-14 w-12 bg-slate-800 object-cover object-top rounded-md"
-        style={{
-          boxShadow: "3px 3px 0px #000000",
-        }}
-      />
+
+      {/* Icon badge instead of avatar image */}
+      <div
+        className={cn(
+          "mb-5 w-12 h-12 rounded-xl flex items-center justify-center",
+          isCenter
+            ? "bg-white/20 text-white"
+            : "bg-gradient-to-br " + testimonial.accent + " text-white"
+        )}
+        style={{ boxShadow: "3px 3px 0px #000000" }}
+      >
+        <IconComponent className="w-6 h-6" />
+      </div>
+
       <h3
         className={cn(
-          "text-base sm:text-lg font-medium leading-snug",
+          "text-sm sm:text-base md:text-lg font-medium leading-snug",
           isCenter ? "text-white" : "text-white"
         )}
       >
-        "{testimonial.testimonial}"
+        {testimonial.testimonial}
       </h3>
       <p
         className={cn(
-          "absolute bottom-8 left-8 right-8 mt-2 text-xs uppercase tracking-wider",
+          "absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 mt-2 text-[10px] sm:text-xs uppercase tracking-wider font-semibold",
           isCenter ? "text-white/80" : "text-[#94A3B8]"
         )}
       >
-        - {testimonial.by}
+        {testimonial.by}
       </p>
     </div>
   );
@@ -111,10 +122,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
 export default function StaggerTestimonials() {
   const [cardSize, setCardSize] = useState(365);
-  const [testimonialsList, setTestimonialsList] = useState(testimonials);
+  const [showcaseList, setShowcaseList] = useState(showcaseItems);
 
   const handleMove = (steps: number) => {
-    const newList = [...testimonialsList];
+    const newList = [...showcaseList];
     if (steps > 0) {
       for (let i = steps; i > 0; i--) {
         const item = newList.shift();
@@ -128,13 +139,21 @@ export default function StaggerTestimonials() {
         newList.unshift({ ...item, tempId: Math.random() });
       }
     }
-    setTestimonialsList(newList);
+    setShowcaseList(newList);
   };
 
   useEffect(() => {
     const updateSize = () => {
-      const { matches } = window.matchMedia("(min-width: 640px)");
-      setCardSize(matches ? 365 : 290);
+      const width = window.innerWidth;
+      if (width < 400) {
+        setCardSize(260);
+      } else if (width < 640) {
+        setCardSize(290);
+      } else if (width < 768) {
+        setCardSize(330);
+      } else {
+        setCardSize(365);
+      }
     };
 
     updateSize();
@@ -143,47 +162,47 @@ export default function StaggerTestimonials() {
   }, []);
 
   return (
-    <section className="bg-[#000000] py-24 border-t border-slate-900 relative">
-      <div className="max-w-7xl mx-auto px-6 text-center mb-12">
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-          What Our Clients Say
+    <section className="bg-[#000000] py-16 sm:py-24 border-t border-slate-900 relative">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+          What We Can Build
         </h2>
-        <p className="text-[#94A3B8] max-w-lg mx-auto text-base sm:text-lg">
-          Read testimonials from our partners who achieved operational excellence with our custom software.
+        <p className="text-[#94A3B8] max-w-lg mx-auto text-sm sm:text-base md:text-lg">
+          Real solutions for real businesses — here's what AVERZA can create for your operations.
         </p>
       </div>
 
       <div
         className="relative w-full overflow-hidden bg-slate-950/20"
-        style={{ height: 600 }}
+        style={{ height: "min(600px, 75vh)" }}
       >
-        {testimonialsList.map((testimonial, index) => {
+        {showcaseList.map((item, index) => {
           const position =
-            testimonialsList.length % 2
-              ? index - (testimonialsList.length + 1) / 2
-              : index - testimonialsList.length / 2;
+            showcaseList.length % 2
+              ? index - (showcaseList.length + 1) / 2
+              : index - showcaseList.length / 2;
           return (
-            <TestimonialCard
-              key={testimonial.tempId}
-              testimonial={testimonial}
+            <ShowcaseCard
+              key={item.tempId}
+              testimonial={item}
               handleMove={handleMove}
               position={position}
               cardSize={cardSize}
             />
           );
         })}
-        <div className="absolute bottom-12 left-1/2 flex -translate-x-1/2 gap-3 z-20">
+        <div className="absolute bottom-8 sm:bottom-12 left-1/2 flex -translate-x-1/2 gap-3 z-20">
           <button
             onClick={() => handleMove(-1)}
-            className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all duration-200 cursor-pointer shadow-lg"
-            aria-label="Previous testimonial"
+            className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all duration-200 cursor-pointer shadow-lg"
+            aria-label="Previous item"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={() => handleMove(1)}
-            className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all duration-200 cursor-pointer shadow-lg"
-            aria-label="Next testimonial"
+            className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-slate-900 border border-slate-800 text-white hover:bg-[#2563EB] hover:border-[#2563EB] transition-all duration-200 cursor-pointer shadow-lg"
+            aria-label="Next item"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

@@ -197,10 +197,11 @@ MagneticButton.displayName = "MagneticButton";
 const MarqueeItem = () => (
   <div className="flex items-center space-x-12 px-6">
     <span>Custom Software</span> <span className="text-blue-500">✦</span>
-    <span>Intelligent Automation</span> <span className="text-cyan-400">✦</span>
-    <span>Built for Scale</span> <span className="text-blue-500">✦</span>
-    <span>AI Workflows</span> <span className="text-cyan-400">✦</span>
-    <span>Cloud Infrastructure</span> <span className="text-blue-500">✦</span>
+    <span>Custom Websites</span> <span className="text-cyan-400">✦</span>
+    <span>Mobile Apps</span> <span className="text-blue-500">✦</span>
+    <span>SEO & Visibility</span> <span className="text-cyan-400">✦</span>
+    <span>Google Business</span> <span className="text-blue-500">✦</span>
+    <span>Cloud Infrastructure</span> <span className="text-cyan-400">✦</span>
   </div>
 );
 
@@ -259,6 +260,12 @@ export default function CinematicFooter() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const openCookiePreferences = () => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("open-cookie-settings"));
+    }
+  };
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
@@ -279,7 +286,7 @@ export default function CinematicFooter() {
             ref={giantTextRef}
             className="footer-giant-bg-text absolute -bottom-[5vh] left-1/2 -translate-x-1/2 whitespace-nowrap z-0 pointer-events-none select-none"
           >
-            INFISPARK
+            AVERZA
           </div>
 
           {/* 1. Diagonal Sleek Marquee (Top of footer) */}
@@ -294,22 +301,32 @@ export default function CinematicFooter() {
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-24 w-full max-w-5xl mx-auto">
             <h2
               ref={headingRef}
-              className="text-4xl md:text-7xl font-black footer-text-glow tracking-tighter mb-8 text-center"
+              className="text-4xl md:text-7xl font-black footer-text-glow tracking-tighter mb-8 text-center animate-pulse duration-1000"
             >
-              Custom Software. Intelligent Automation. Built for Scale.
+              Build. Transform. Grow.
             </h2>
 
             {/* Quick Links and Contact Grid */}
             <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-3xl mt-4">
               {/* Quick Links */}
               <div className="flex flex-col items-center md:items-start">
-                <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Quick Links</span>
+                <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Navigation</span>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                  {["Services", "Solutions", "Industries", "About", "Contact"].map((link) => (
-                    <MagneticButton key={link} as="a" href="#" className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#94A3B8] hover:text-white">
-                      {link}
+                  {[
+                    { name: "Services", href: "#services" },
+                    { name: "Process", href: "#process" },
+                    { name: "Portfolio", href: "#portfolio" },
+                    { name: "Pricing", href: "#pricing" },
+                    { name: "FAQ", href: "#faq" },
+                    { name: "Contact", href: "#contact" },
+                  ].map((link) => (
+                    <MagneticButton key={link.name} as="a" href={link.href} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#94A3B8] hover:text-white">
+                      {link.name}
                     </MagneticButton>
                   ))}
+                  <MagneticButton as="button" onClick={openCookiePreferences} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#94A3B8] hover:text-white">
+                    Cookie Settings
+                  </MagneticButton>
                 </div>
               </div>
 
@@ -317,9 +334,9 @@ export default function CinematicFooter() {
               <div className="flex flex-col items-center md:items-start">
                 <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Contact Us</span>
                 <div className="flex flex-col gap-2 items-center md:items-start text-[#94A3B8] text-sm">
-                  <span>Email: <a href="mailto:infisparks@gmail.com" className="hover:text-white transition-colors">infisparks@gmail.com</a></span>
-                  <span>Phone: <a href="tel:+919958399157" className="hover:text-white transition-colors">+91 99583 99157</a> / <a href="tel:+918108821353" className="hover:text-white transition-colors">+91 81088 21353</a></span>
-                  <span className="text-center md:text-left">Office: BKC G-Block, Bandra, Mumbai — 400051</span>
+                  <span>Email: <a href="mailto:hello@averza.in" className="hover:text-white transition-colors">hello@averza.in</a></span>
+                  <span>Phone: <a href="tel:+918591484058" className="hover:text-white transition-colors">+91 85914 84058</a></span>
+                  <span className="text-center md:text-left">Service Areas: Thane, Mumbai, Navi Mumbai, Maharashtra</span>
                 </div>
               </div>
             </div>
@@ -330,15 +347,13 @@ export default function CinematicFooter() {
             
             {/* Copyright */}
             <div className="text-[#94A3B8] text-[10px] md:text-xs font-semibold tracking-widest uppercase order-2 md:order-1">
-              © 2026 INFISPARK TECHNOLOGIES LLP. All rights reserved.
+              © 2026 AVERZA. All rights reserved.
             </div>
 
             {/* "Made with Love" Badge */}
             <div className="footer-glass-pill px-6 py-3 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-slate-800">
-              <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted with</span>
-              <span className="animate-footer-heartbeat text-sm md:text-base text-blue-500">❤</span>
-              <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">by</span>
-              <span className="text-white font-black text-xs md:text-sm tracking-normal ml-1">INFISPARK TECHNOLOGIES LLP</span>
+              <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted by</span>
+              <span className="text-white font-black text-xs md:text-sm tracking-normal ml-1">AVERZA</span>
             </div>
 
             {/* Back to top */}

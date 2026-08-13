@@ -9,22 +9,27 @@ export default function ContactSection() {
     email: "",
     company: "",
     message: "",
+    consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.consent) {
+      alert("Please consent to the privacy policy before submitting.");
+      return;
+    }
     // Simulate submit
     setSubmitted(true);
     setTimeout(() => {
-      setFormData({ name: "", email: "", company: "", message: "" });
+      setFormData({ name: "", email: "", company: "", message: "", consent: false });
       setSubmitted(false);
     }, 3000);
   };
 
-  const whatsappNumber = "919958399157";
+  const whatsappNumber = "918591484058";
   const whatsappMessage = encodeURIComponent(
-    "Hi Infispark Technologies LLP, I would like to request a consultation for my business."
+    "Hi AVERZA, I would like to request a consultation for my business."
   );
 
   return (
@@ -47,11 +52,11 @@ export default function ContactSection() {
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
             Ready to Accelerate Your{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#38BDF8]">
-              Digital Future?
+              Digital Journey?
             </span>
           </h2>
           <p className="text-[#94A3B8] max-w-xl mx-auto text-base sm:text-lg">
-            Partner with INFISPARK TECHNOLOGIES LLP to build bespoke, scalable custom software, e-commerce architectures, and advanced AI systems.
+            Partner with AVERZA to move your business from manual operations to modern digital systems.
           </p>
         </div>
 
@@ -72,10 +77,10 @@ export default function ContactSection() {
                       Mail Us 24/7
                     </h3>
                     <a
-                      href="mailto:infisparks@gmail.com"
+                      href="mailto:hello@averza.in"
                       className="text-base font-semibold text-white hover:text-blue-400 transition-colors"
                     >
-                      infisparks@gmail.com
+                      hello@averza.in
                     </a>
                   </div>
                 </div>
@@ -92,11 +97,8 @@ export default function ContactSection() {
                       Call / WhatsApp
                     </h3>
                     <div className="flex flex-col text-sm font-semibold text-white gap-0.5">
-                      <a href="tel:+919958399157" className="hover:text-emerald-400 transition-colors">
-                        +91 99583 99157 (Mudassir)
-                      </a>
-                      <a href="tel:+918108821353" className="hover:text-emerald-400 transition-colors">
-                        +91 81088 21353 (Moin)
+                      <a href="tel:+918591484058" className="hover:text-emerald-400 transition-colors">
+                        +91 85914 84058 (Direct Support)
                       </a>
                     </div>
                   </div>
@@ -111,10 +113,10 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">
-                      Headquarters
+                      Primary Service Areas
                     </h3>
                     <p className="text-sm font-semibold text-white">
-                      BKC G-Block, Bandra, Mumbai — 400051
+                      Mumbra, Thane, Navi Mumbai, Mumbai, Maharashtra, India
                     </p>
                   </div>
                 </div>
@@ -138,10 +140,10 @@ export default function ContactSection() {
           <div className="lg:col-span-7 p-8 rounded-3xl bg-white/[0.02] border border-white/[0.06] backdrop-blur-md relative flex flex-col justify-between">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-white mb-1">
-                Request a Consultation
+                Start Your Digital Transformation
               </h3>
               <p className="text-slate-400 text-sm">
-                Our consultants respond within 24 hours.
+                Fill out the form below or chat with us on WhatsApp. We respond within 24 hours.
               </p>
             </div>
 
@@ -151,10 +153,10 @@ export default function ContactSection() {
                   <Send className="w-6 h-6 animate-pulse" />
                 </div>
                 <h4 className="text-lg font-bold text-white mb-2">
-                  Request Sent Successfully!
+                  Inquiry Simulated Successfully!
                 </h4>
                 <p className="text-slate-400 text-sm max-w-xs">
-                  Thank you for reaching out. We will get back to you shortly.
+                  This demo form has successfully simulated message delivery. For real inquiries, please reach out via email or WhatsApp.
                 </p>
               </div>
             ) : (
@@ -175,7 +177,7 @@ export default function ContactSection() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                      Work Email
+                      Email Address
                     </label>
                     <input
                       type="email"
@@ -190,12 +192,12 @@ export default function ContactSection() {
 
                 <div className="flex flex-col gap-2">
                   <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Company Name
+                    Business Name
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="e.g. Acme Corp"
+                    placeholder="e.g. Acme Café"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     className="px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:outline-none focus:border-[#2563EB] text-sm transition-all"
@@ -204,22 +206,36 @@ export default function ContactSection() {
 
                 <div className="flex flex-col gap-2">
                   <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Message (Optional)
+                    Message
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Tell us about your project requirements..."
+                    placeholder="Briefly describe your business operations and what you'd like to build or transform..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.08] text-white focus:outline-none focus:border-[#2563EB] text-sm transition-all resize-none"
                   />
                 </div>
 
+                <div className="flex items-start gap-3 mt-1">
+                  <input
+                    id="consent-checkbox"
+                    type="checkbox"
+                    required
+                    checked={formData.consent}
+                    onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                    className="mt-1 h-4 w-4 rounded border-white/20 bg-white/5 text-blue-600 focus:ring-blue-500"
+                  />
+                  <label htmlFor="consent-checkbox" className="text-xs text-slate-400 select-none cursor-pointer">
+                    I agree to share my information with AVERZA to receive a consultation. We respect your privacy and will never spam you.
+                  </label>
+                </div>
+
                 <button
                   type="submit"
                   className="w-full py-4 rounded-xl bg-[#2563EB] hover:bg-blue-600 text-white font-bold transition-all text-sm tracking-wide shadow-lg shadow-blue-500/10 cursor-pointer"
                 >
-                  Request a Quote
+                  Request a Consultation
                 </button>
               </form>
             )}

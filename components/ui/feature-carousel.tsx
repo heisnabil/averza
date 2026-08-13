@@ -3,74 +3,74 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Briefcase,
+  Code,
   Globe,
   Smartphone,
-  Cpu,
-  Activity,
-  Layers,
-  Link2,
+  Search,
+  MapPin,
+  Palette,
+  Video,
   Cloud,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// 8 features specified for Infispark Technology
+// 8 AVERZA services
 const FEATURES = [
   {
-    id: "enterprise-software",
-    label: "Enterprise Software Development",
-    icon: Briefcase,
+    id: "custom-software",
+    label: "Custom Software Development",
+    icon: Code,
     image: "/images/feature-1.jpg",
-    description: "Build scalable internal business systems tailored to operations.",
+    description: "Business software designed around your actual workflows — CRM, inventory, booking and management systems.",
   },
   {
-    id: "custom-web",
-    label: "Custom Web Platforms",
+    id: "website-development",
+    label: "Custom Website Development",
     icon: Globe,
     image: "/images/feature-2.jpg",
-    description: "High-performance web applications engineered for growth.",
+    description: "Fast, responsive and SEO-ready websites built to represent your business and generate leads.",
   },
   {
-    id: "mobile-apps",
-    label: "Cross-Platform Mobile Apps",
+    id: "mobile-development",
+    label: "Mobile & Android Apps",
     icon: Smartphone,
     image: "/images/feature-3.jpg",
-    description: "Native-like Android and iOS applications.",
+    description: "Mobile applications built for your customers, your team and your business operations.",
   },
   {
-    id: "ai-automation",
-    label: "AI Workflow Automation",
-    icon: Cpu,
+    id: "seo",
+    label: "SEO & Search Visibility",
+    icon: Search,
     image: "/images/feature-4.png",
-    description: "Integrate LLMs and intelligent automation into existing workflows.",
+    description: "Help the right customers discover your business on Google through local and technical SEO.",
   },
   {
-    id: "lab-automation",
-    label: "Pathology Lab Automation",
-    icon: Activity,
+    id: "google-business",
+    label: "Google Business Profile",
+    icon: MapPin,
     image: "/images/feature-5.png",
-    description: "Digital workflows for laboratories and diagnostics.",
+    description: "Establish a stronger local presence across Google Search and Google Maps.",
   },
   {
-    id: "saas-dev",
-    label: "SaaS Platform Development",
-    icon: Layers,
+    id: "product-design",
+    label: "Product Design & UI/UX",
+    icon: Palette,
     image: "/images/feature-6.png",
-    description: "Build secure cloud-native SaaS products.",
+    description: "Design digital products that are clear, useful and easy to use — from wireframes to design systems.",
   },
   {
-    id: "api-integrations",
-    label: "API Integrations",
-    icon: Link2,
+    id: "video-content",
+    label: "Reels & Video Editing",
+    icon: Video,
     image: "/images/feature-7.jpg",
-    description: "CRM, ERP, WhatsApp, Payment Gateway, SMS and Email integrations.",
+    description: "Turn your products, services and brand story into engaging short-form video content.",
   },
   {
-    id: "cloud-infrastructure",
-    label: "Cloud Infrastructure",
+    id: "cloud-deployment",
+    label: "Cloud & Deployment",
     icon: Cloud,
     image: "/images/feature-8.jpg",
-    description: "AWS, GCP deployment, monitoring, scaling and backups.",
+    description: "Take your digital product from development to a reliable, secure production environment.",
   },
 ];
 
@@ -217,7 +217,7 @@ export default function FeatureCarousel() {
                 >
                   <img
                     src={feature.image}
-                    alt={feature.label}
+                    alt={`${feature.label} — AVERZA digital service`}
                     className={cn(
                       "w-full h-full object-cover transition-all duration-700",
                       isActive
@@ -235,7 +235,7 @@ export default function FeatureCarousel() {
                         className="absolute inset-x-0 bottom-0 p-8 pt-32 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end pointer-events-none"
                       >
                         <div className="bg-[#2563EB] text-white px-3 py-1 rounded-full text-[10px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3">
-                          {index + 1} • SOLUTIONS
+                          {index + 1} • SERVICES
                         </div>
                         <p className="text-white font-normal text-lg md:text-xl leading-snug drop-shadow-md tracking-tight">
                           {feature.description}
@@ -252,7 +252,7 @@ export default function FeatureCarousel() {
                   >
                     <div className="w-2 h-2 rounded-full bg-[#38BDF8] shadow-[0_0_10px_#38BDF8]" />
                     <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
-                      INFISPARK TECHNOLOGY
+                      AVERZA
                     </span>
                   </div>
                 </motion.div>

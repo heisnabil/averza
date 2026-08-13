@@ -1,14 +1,48 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
+import { cn } from "@/lib/utils";
+
+const technologies = [
+  { name: "React", color: "text-[#61DAFB]" },
+  { name: "Next.js", color: "text-white" },
+  { name: "Tailwind CSS", color: "text-[#38BDF8]" },
+  { name: "TypeScript", color: "text-[#3178C6]" },
+  { name: "JavaScript", color: "text-[#F7DF1E]" },
+  { name: "Node.js", color: "text-[#339933]" },
+  { name: "GSAP", color: "text-[#88CE02]" },
+  { name: "Framer Motion", color: "text-[#FF0055]" },
+  { name: "PostgreSQL", color: "text-[#4169E1]" },
+  { name: "MongoDB", color: "text-[#47A248]" },
+  { name: "AWS", color: "text-[#FF9900]" },
+  { name: "GCP", color: "text-[#4285F4]" },
+  { name: "Vercel", color: "text-white" },
+  { name: "Android SDK", color: "text-[#3DDC84]" },
+  { name: "REST APIs", color: "text-[#00F0FF]" },
+  { name: "Docker", color: "text-[#2496ED]" },
+];
 
 export default function LogoCloud() {
-  // 19 logos from public/logos/1.png through 19.png
-  const logos = Array.from({ length: 19 }, (_, i) => `/logos/${i + 1}.png`);
+  // Render a single row of tech badges
+  const TechRow = ({ keyPrefix }: { keyPrefix: string }) => (
+    <>
+      {technologies.map((tech, idx) => (
+        <div
+          key={`${keyPrefix}-${idx}`}
+          className="flex-shrink-0 mx-3"
+        >
+          <div className="px-5 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#38BDF8]/30 hover:bg-white/[0.08] transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+            <span className={cn("text-xs sm:text-sm font-bold tracking-wide uppercase whitespace-nowrap", tech.color)}>
+              {tech.name}
+            </span>
+          </div>
+        </div>
+      ))}
+    </>
+  );
 
   return (
-    <section className="relative bg-[#000000] py-20 overflow-hidden">
+    <section className="relative bg-[#000000] py-16 sm:py-20 overflow-hidden">
       {/* Top/bottom subtle borders */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#2563EB]/40 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#38BDF8]/40 to-transparent" />
@@ -17,98 +51,61 @@ export default function LogoCloud() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-48 bg-[#2563EB]/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 right-1/4 w-96 h-48 bg-[#38BDF8]/10 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-32 bg-[#6366F1]/[0.07] rounded-full blur-[120px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 text-center mb-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 text-center mb-10 sm:mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38BDF8] opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38BDF8]"></span>
           </span>
           <span className="text-[10px] sm:text-xs text-white/60 tracking-wider font-medium uppercase">
-            Trusted Partners
+            Our Tech Stack
           </span>
         </div>
         <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
-          Trusted by{" "}
+          Technologies We{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] via-[#38BDF8] to-[#6366F1]">
-            Leading Brands
-          </span>{" "}
-          & Enterprises
+            Build With
+          </span>
         </h3>
         <p className="text-sm text-slate-400 max-w-md mx-auto">
-          Partnering with industry leaders to deliver cutting-edge solutions
+          Modern tools, frameworks and platforms powering the digital systems we create
         </p>
       </div>
 
-      {/* Infinite Horizontal Scroll */}
-      <div className="relative w-full flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_8%,white_92%,transparent)]">
-        <div className="animate-marquee flex whitespace-nowrap gap-8 py-4 items-center">
-          {logos.map((logo, idx) => (
-            <div
-              key={`logo-1-${idx}`}
-              className="relative flex-shrink-0 group"
-            >
-              <div className="relative w-40 h-16 rounded-2xl bg-white/[0.06] border border-white/[0.08] group-hover:border-[#38BDF8]/30 group-hover:bg-white/[0.1] transition-all duration-400 flex items-center justify-center px-5 py-3 backdrop-blur-sm shadow-lg shadow-black/20 group-hover:shadow-[#2563EB]/10">
-                <Image
-                  src={logo}
-                  alt={`Partner logo ${idx + 1}`}
-                  fill
-                  sizes="160px"
-                  className="object-contain p-3 transition-all duration-400"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Duplicate list to make it infinite loop seamlessly */}
-        <div className="absolute top-0 animate-marquee2 flex whitespace-nowrap gap-8 py-4 items-center" aria-hidden="true">
-          {logos.map((logo, idx) => (
-            <div
-              key={`logo-2-${idx}`}
-              className="relative flex-shrink-0 group"
-            >
-              <div className="relative w-40 h-16 rounded-2xl bg-white/[0.06] border border-white/[0.08] group-hover:border-[#38BDF8]/30 group-hover:bg-white/[0.1] transition-all duration-400 flex items-center justify-center px-5 py-3 backdrop-blur-sm shadow-lg shadow-black/20 group-hover:shadow-[#2563EB]/10">
-                <Image
-                  src={logo}
-                  alt={`Partner logo ${idx + 1}`}
-                  fill
-                  sizes="160px"
-                  className="object-contain p-3 transition-all duration-400"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          ))}
+      {/* Infinite Horizontal Scroll — uses inline-flex for single continuous row */}
+      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_5%,white_95%,transparent)]">
+        <div className="marquee-track flex">
+          <div className="marquee-content flex py-3">
+            <TechRow keyPrefix="a" />
+          </div>
+          <div className="marquee-content flex py-3" aria-hidden="true">
+            <TechRow keyPrefix="b" />
+          </div>
         </div>
       </div>
 
-      {/* Custom Styles for Infinite Marquee (Next.js 15 Tailwind v4 configuration) */}
       <style jsx global>{`
-        @keyframes marquee {
+        .marquee-track {
+          width: max-content;
+          animation: marquee-scroll 40s linear infinite;
+        }
+        .marquee-content {
+          flex-shrink: 0;
+        }
+        @keyframes marquee-scroll {
           0% {
-            transform: translateX(0%);
+            transform: translateX(0);
           }
           100% {
-            transform: translateX(-100%);
+            transform: translateX(-50%);
           }
         }
-        @keyframes marquee2 {
-          0% {
-            transform: translateX(100%);
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-track {
+            animation: none;
           }
-          100% {
-            transform: translateX(0%);
-          }
-        }
-        .animate-marquee {
-          animation: marquee 50s linear infinite;
-        }
-        .animate-marquee2 {
-          animation: marquee2 50s linear infinite;
         }
       `}</style>
     </section>

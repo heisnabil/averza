@@ -90,9 +90,9 @@ const advantages = [
   },
 ];
 
-export default function WhyInfispark() {
+export default function WhyAverza() {
   return (
-    <section id="why-infispark" className="relative bg-[#000000] py-24 md:py-32 overflow-hidden border-t border-slate-900">
+    <section id="why-averza" className="relative bg-[#000000] py-24 md:py-32 overflow-hidden border-t border-slate-900">
       {/* Background glow effects */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[120px]" />
@@ -101,11 +101,11 @@ export default function WhyInfispark() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        {/* Why Choose Infispark Header */}
+        {/* Why Choose AVERZA Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
             <span className="text-[10px] sm:text-xs text-[#38BDF8] tracking-wider font-semibold uppercase">
-              Why Choose Infispark
+              Why Choose AVERZA
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
@@ -143,11 +143,11 @@ export default function WhyInfispark() {
           })}
         </div>
 
-        {/* The Infispark Advantage Header */}
+        {/* The AVERZA Advantage Header */}
         <div className="text-center mb-16 pt-8 border-t border-slate-900">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
             <span className="text-[10px] sm:text-xs text-[#38BDF8] tracking-wider font-semibold uppercase">
-              The Infispark Advantage
+              The AVERZA Advantage
             </span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">

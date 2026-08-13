@@ -30,24 +30,24 @@ const darkTheme = createTheme({
 
 const steps = [
   {
-    label: "Discovery & Requirement Analysis",
-    description: "Understand business challenges, goals and technical requirements.",
+    label: "Tell Us What You Need",
+    description: "We start by understanding your business, your customers and the problems you want to solve. No technical jargon — just a clear conversation about what you need.",
   },
   {
-    label: "Architecture & Planning",
-    description: "Design scalable software architecture and implementation roadmap.",
+    label: "We Design the Solution",
+    description: "Based on your requirements, we plan the right approach — whether that's a website, custom software, mobile app, SEO strategy or a combination of services.",
   },
   {
-    label: "Development & AI Integration",
-    description: "Build secure, high-performance software with AI capabilities.",
+    label: "Development Begins",
+    description: "Our team builds your solution using modern, reliable technology. You'll see progress at every stage with regular updates and previews.",
   },
   {
-    label: "Testing & Quality Assurance",
-    description: "Comprehensive testing to ensure reliability, security and performance.",
+    label: "Review & Refine",
+    description: "We test everything thoroughly and walk you through the result. Your feedback shapes the final product before it goes live.",
   },
   {
-    label: "Deployment & Long-Term Support",
-    description: "Deploy to production with continuous monitoring and maintenance.",
+    label: "Launch & Ongoing Support",
+    description: "We deploy your solution to production and provide ongoing support. Your digital systems keep running smoothly as your business grows.",
   },
 ];
 
@@ -72,10 +72,10 @@ export default function ProcessStepper() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
-              Our Development Process
+              How We Work
             </h2>
             <p className="text-[#94A3B8] max-w-lg mx-auto text-base sm:text-lg">
-              A structured, high-performance workflow designed to turn ideas into enterprise software.
+              A clear, structured process designed to take your project from idea to a working digital product.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function ProcessStepper() {
                   <StepLabel
                     optional={
                       index === 4 ? (
-                        <Typography variant="caption">Last step</Typography>
+                        <Typography variant="caption">Final step</Typography>
                       ) : null
                     }
                   >
@@ -121,10 +121,10 @@ export default function ProcessStepper() {
             {activeStep === steps.length && (
               <Box sx={{ p: 3, textAlign: "center", bgcolor: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", mt: 2 }}>
                 <Typography className="text-white font-medium mb-3">
-                  All steps completed - ready to build!
+                  That's how we work — ready to start your project?
                 </Typography>
                 <Button onClick={handleReset} sx={{ textTransform: "none" }}>
-                  Reset Process View
+                  View Process Again
                 </Button>
               </Box>
             )}

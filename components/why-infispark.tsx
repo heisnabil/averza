@@ -19,29 +19,29 @@ const pillars = [
     icon: Compass,
     title: "Custom Platform Design",
     description: "High-performance web and cloud platforms engineered for scale, reliability, and security.",
-    color: "from-blue-500/20 to-indigo-500/20",
-    iconColor: "text-blue-400",
+    color: "from-[#650108]/25 to-[#3F0005]/25",
+    iconColor: "text-[#F2E8D2]",
   },
   {
     icon: Cpu,
     title: "AI Workflows & LLMs",
     description: "Automate content generation, data extraction, and repetitive tasks with direct AI integrations.",
-    color: "from-purple-500/20 to-indigo-500/20",
-    iconColor: "text-purple-400",
+    color: "from-[#7A0A12]/25 to-[#650108]/25",
+    iconColor: "text-[#E7D6B8]",
   },
   {
     icon: Share2,
     title: "API-Driven Architecture",
     description: "Unify notifications, transaction queues, and CRM data using secure REST and WhatsApp APIs.",
-    color: "from-cyan-500/20 to-blue-500/20",
-    iconColor: "text-cyan-400",
+    color: "from-[#3F0005]/25 to-[#650108]/25",
+    iconColor: "text-[#D8C7A8]",
   },
   {
     icon: Headphones,
     title: "Dedicated Live Support",
     description: "Round-the-clock systems uptime, proactive patching, and instant developer messaging access.",
-    color: "from-emerald-500/20 to-teal-500/20",
-    iconColor: "text-emerald-400",
+    color: "from-[#650108]/20 to-[#7A0A12]/20",
+    iconColor: "text-[#F2E8D2]",
   },
 ];
 
@@ -92,29 +92,29 @@ const advantages = [
 
 export default function WhyAverza() {
   return (
-    <section id="why-averza" className="relative bg-[#000000] py-24 md:py-32 overflow-hidden border-t border-slate-900">
-      {/* Background glow effects */}
+    <section id="why-averza" className="relative bg-[#240003] py-24 md:py-32 overflow-hidden border-t border-[#4D070B]">
+      {/* Warm background glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-blue-500/[0.03] rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-[#6366F1]/[0.03] rounded-full blur-[120px]" />
+        <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] bg-[#650108]/[0.06] rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[5%] w-[400px] h-[400px] bg-[#3F0005]/[0.08] rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
-        {/* Why Choose AVERZA Header */}
+
+        {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
-            <span className="text-[10px] sm:text-xs text-[#38BDF8] tracking-wider font-semibold uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2E8D2]/[0.04] border border-[#F2E8D2]/[0.10] mb-4">
+            <span className="text-[10px] sm:text-xs text-[#D8C7A8] tracking-wider font-semibold uppercase">
               Why Choose AVERZA
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#F8F1E3] mb-4">
             Tailored Architecture for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-[#38BDF8]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F2E8D2] to-[#D8C7A8]">
               High-Growth Enterprises
             </span>
           </h2>
-          <p className="text-[#94A3B8] max-w-xl mx-auto text-base sm:text-lg">
+          <p className="text-[#B9A98E] max-w-xl mx-auto text-base sm:text-lg">
             A seamless digital ecosystem — where custom architecture and business efficiency converge.
           </p>
         </div>
@@ -126,16 +126,16 @@ export default function WhyAverza() {
             return (
               <div
                 key={index}
-                className="relative group p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-300"
+                className="relative group p-6 rounded-2xl bg-[#F2E8D2]/[0.02] border border-[#4D070B] hover:border-[#650108] hover:bg-[#F2E8D2]/[0.04] transition-all duration-300"
               >
-                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl" />
+                <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-[#650108] to-[#F2E8D2]/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-t-2xl" />
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.color} flex items-center justify-center mb-6`}>
                   <Icon className={`w-6 h-6 ${pillar.iconColor}`} />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg font-bold text-[#F8F1E3] mb-2 group-hover:text-[#F2E8D2] transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="text-[#94A3B8] text-sm leading-relaxed">
+                <p className="text-[#B9A98E] text-sm leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -143,20 +143,20 @@ export default function WhyAverza() {
           })}
         </div>
 
-        {/* The AVERZA Advantage Header */}
-        <div className="text-center mb-16 pt-8 border-t border-slate-900">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-4">
-            <span className="text-[10px] sm:text-xs text-[#38BDF8] tracking-wider font-semibold uppercase">
+        {/* Advantage Header */}
+        <div className="text-center mb-16 pt-8 border-t border-[#4D070B]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F2E8D2]/[0.04] border border-[#F2E8D2]/[0.10] mb-4">
+            <span className="text-[10px] sm:text-xs text-[#D8C7A8] tracking-wider font-semibold uppercase">
               The AVERZA Advantage
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-[#F8F1E3] mb-4">
             Built for the New Era of{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] via-[#38BDF8] to-[#6366F1]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F2E8D2] via-[#E7D6B8] to-[#D8C7A8]">
               Enterprise Tech
             </span>
           </h2>
-          <p className="text-[#94A3B8] max-w-xl mx-auto text-base sm:text-lg">
+          <p className="text-[#B9A98E] max-w-xl mx-auto text-base sm:text-lg">
             Transform your business operations with custom software environments engineered for speed, data security, and seamless usability.
           </p>
         </div>
@@ -168,24 +168,24 @@ export default function WhyAverza() {
             return (
               <div
                 key={index}
-                className="relative group p-8 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] hover:bg-white/[0.04] transition-all duration-300 flex flex-col justify-between"
+                className="relative group p-8 rounded-2xl bg-[#F2E8D2]/[0.02] border border-[#4D070B] hover:border-[#650108] hover:bg-[#F2E8D2]/[0.04] transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <div className="text-3xl sm:text-4xl font-extrabold text-white group-hover:text-[#38BDF8] transition-colors font-mono">
+                    <div className="text-3xl sm:text-4xl font-extrabold text-[#F8F1E3] group-hover:text-[#F2E8D2] transition-colors font-mono">
                       {adv.stat}
                     </div>
-                    <div className="w-10 h-10 rounded-lg bg-white/[0.04] flex items-center justify-center text-slate-400 group-hover:text-white transition-colors">
+                    <div className="w-10 h-10 rounded-lg bg-[#F2E8D2]/[0.04] flex items-center justify-center text-[#B9A98E] group-hover:text-[#F2E8D2] transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
-                  <h4 className="text-base font-semibold text-[#38BDF8] uppercase tracking-wider mb-1">
+                  <h4 className="text-base font-semibold text-[#F2E8D2] uppercase tracking-wider mb-1">
                     {adv.title}
                   </h4>
-                  <h5 className="text-sm font-medium text-slate-400 mb-3">
+                  <h5 className="text-sm font-medium text-[#B9A98E] mb-3">
                     {adv.subtitle}
                   </h5>
-                  <p className="text-[#94A3B8] text-sm leading-relaxed">
+                  <p className="text-[#B9A98E] text-sm leading-relaxed">
                     {adv.description}
                   </p>
                 </div>

@@ -48,25 +48,62 @@
 }
 
 :root {
-  --background: #000000;
-  --foreground: #FFFFFF;
-  --card: #0F172A;
-  --card-foreground: #FFFFFF;
-  --popover: #0F172A;
-  --popover-foreground: #FFFFFF;
-  --primary: #2563EB;
-  --primary-foreground: #FFFFFF;
-  --secondary: #0F172A;
-  --secondary-foreground: #FFFFFF;
-  --muted: #0F172A;
-  --muted-foreground: #94A3B8;
-  --accent: #38BDF8;
-  --accent-foreground: #000000;
-  --destructive: #EF4444;
-  --border: #1E293B;
-  --input: #1E293B;
-  --ring: #2563EB;
+  /* ── AVERZA Brand Color System ── */
+
+  /* Core dark backgrounds — warm maroon instead of cold black */
+  --background: #240003;
+  --foreground: #F8F1E3;
+
+  /* Surface / Card layers */
+  --card: #330005;
+  --card-foreground: #F8F1E3;
+  --popover: #330005;
+  --popover-foreground: #F8F1E3;
+
+  /* Primary brand — maroon */
+  --primary: #650108;
+  --primary-foreground: #F2E8D2;
+
+  /* Secondary — deep maroon */
+  --secondary: #3F0005;
+  --secondary-foreground: #F2E8D2;
+
+  /* Muted surfaces */
+  --muted: #3F0005;
+  --muted-foreground: #B9A98E;
+
+  /* Accent — warm cream */
+  --accent: #F2E8D2;
+  --accent-foreground: #240003;
+
+  /* Status */
+  --destructive: #A3262A;
+
+  /* Borders & Inputs */
+  --border: #4D070B;
+  --input: #4D070B;
+
+  /* Focus ring — cream */
+  --ring: #F2E8D2;
+
   --radius: 0.625rem;
+
+  /* ── Extended AVERZA Tokens ── */
+  --averza-maroon-deep:      #3F0005;
+  --averza-maroon-darkest:   #240003;
+  --averza-maroon-surface:   #330005;
+  --averza-maroon-medium:    #7A0A12;
+  --averza-maroon-light:     #9B1820;
+  --averza-cream:            #F2E8D2;
+  --averza-cream-light:      #F8F1E3;
+  --averza-cream-pale:       #FBF7EF;
+  --averza-cream-dark:       #E7D6B8;
+  --averza-text-muted:       #B9A98E;
+  --averza-border:           #4D070B;
+  --averza-border-cream:     #D8C7A8;
+  --averza-success:          #4F7A52;
+  --averza-warning:          #A36A18;
+  --averza-error:            #A3262A;
 }
 
 @layer base {
@@ -78,5 +115,15 @@
   }
   html {
     @apply font-sans;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: #650108;
+    color: #F2E8D2;
+  }
+  ::-moz-selection {
+    background-color: #650108;
+    color: #F2E8D2;
   }
 }

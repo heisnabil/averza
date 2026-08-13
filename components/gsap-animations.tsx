@@ -102,7 +102,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const subtitle = solutionsSection.querySelector("h2 + p, .text-\\[\\#94A3B8\\]");
+          const subtitle = solutionsSection.querySelector("h2 + p, .text-\\[\\#B9A98E\\]");
           if (subtitle) {
             gsap.fromTo(
               subtitle,
@@ -180,7 +180,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const processSubtitle = processSection.querySelector("p.text-\\[\\#94A3B8\\]");
+          const processSubtitle = processSection.querySelector("p.text-\\[\\#B9A98E\\]");
           if (processSubtitle) {
             gsap.fromTo(
               processSubtitle,
@@ -315,7 +315,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const pricingSubtitle = pricingSection.querySelector("h2 ~ p, p.text-\\[\\#94A3B8\\]");
+          const pricingSubtitle = pricingSection.querySelector("h2 ~ p, p.text-\\[\\#B9A98E\\]");
           if (pricingSubtitle) {
             gsap.fromTo(
               pricingSubtitle,

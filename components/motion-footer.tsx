@@ -6,7 +6,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
 
-// Register ScrollTrigger safely for React
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -17,14 +16,14 @@ const STYLES = `
 .cinematic-footer-wrapper {
   font-family: 'Plus Jakarta Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
-  
+
   --pill-bg-1: color-mix(in oklch, var(--foreground) 3%, transparent);
   --pill-bg-2: color-mix(in oklch, var(--foreground) 1%, transparent);
   --pill-shadow: color-mix(in oklch, var(--background) 50%, transparent);
   --pill-highlight: color-mix(in oklch, var(--foreground) 10%, transparent);
   --pill-inset-shadow: color-mix(in oklch, var(--background) 80%, transparent);
   --pill-border: color-mix(in oklch, var(--foreground) 8%, transparent);
-  
+
   --pill-bg-1-hover: color-mix(in oklch, var(--foreground) 8%, transparent);
   --pill-bg-2-hover: color-mix(in oklch, var(--foreground) 2%, transparent);
   --pill-border-hover: color-mix(in oklch, var(--foreground) 20%, transparent);
@@ -33,8 +32,8 @@ const STYLES = `
 }
 
 @keyframes footer-breathe {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
 }
 
 @keyframes footer-scroll-marquee {
@@ -43,8 +42,8 @@ const STYLES = `
 }
 
 @keyframes footer-heartbeat {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
-  15%, 45% { transform: scale(1.2); filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.8)); }
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(101, 1, 8, 0.4)); }
+  15%, 45% { transform: scale(1.2); filter: drop-shadow(0 0 10px rgba(242, 232, 210, 0.5)); }
   30% { transform: scale(1); }
 }
 
@@ -62,41 +61,40 @@ const STYLES = `
 
 .footer-bg-grid {
   background-size: 60px 60px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image:
+    linear-gradient(to right, rgba(242, 232, 210, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 232, 210, 0.02) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
 }
 
 .footer-aurora {
   background: radial-gradient(
-    circle at 50% 50%, 
-    rgba(37, 99, 235, 0.15) 0%, 
-    rgba(56, 189, 248, 0.15) 40%, 
+    circle at 50% 50%,
+    rgba(101, 1, 8, 0.20) 0%,
+    rgba(63, 0, 5, 0.15) 40%,
     transparent 70%
   );
 }
 
 .footer-glass-pill {
-  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
-  box-shadow: 
-      0 10px 30px -10px rgba(0,0,0,0.5), 
-      inset 0 1px 1px rgba(255,255,255,0.05), 
+  background: linear-gradient(145deg, rgba(242,232,210,0.04) 0%, rgba(242,232,210,0.01) 100%);
+  box-shadow:
+      0 10px 30px -10px rgba(0,0,0,0.5),
+      inset 0 1px 1px rgba(242,232,210,0.06),
       inset 0 -1px 2px rgba(0,0,0,0.8);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(77, 7, 11, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-glass-pill:hover {
-  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
-  border-color: rgba(56, 189, 248, 0.3);
-  box-shadow: 
-      0 20px 40px -10px rgba(0,0,0,0.7), 
-      inset 0 1px 1px rgba(255,255,255,0.1);
-  color: #white;
+  background: linear-gradient(145deg, rgba(242,232,210,0.10) 0%, rgba(242,232,210,0.03) 100%);
+  border-color: rgba(242, 232, 210, 0.25);
+  box-shadow:
+      0 20px 40px -10px rgba(0,0,0,0.7),
+      inset 0 1px 1px rgba(242,232,210,0.10);
 }
 
 .footer-giant-bg-text {
@@ -105,22 +103,22 @@ const STYLES = `
   font-weight: 900;
   letter-spacing: -0.05em;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  -webkit-text-stroke: 1px rgba(242, 232, 210, 0.04);
+  background: linear-gradient(180deg, rgba(242, 232, 210, 0.06) 0%, transparent 60%);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
 .footer-text-glow {
-  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255,255,255,0.6) 100%);
+  background: linear-gradient(180deg, #F8F1E3 0%, rgba(248,241,227,0.7) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0px 0px 20px rgba(37, 99, 235, 0.2));
+  filter: drop-shadow(0px 0px 20px rgba(101, 1, 8, 0.25));
 }
 `;
 
-export type MagneticButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & 
+export type MagneticButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   React.AnchorHTMLAttributes<HTMLAnchorElement> & {
     as?: React.ElementType;
   };
@@ -141,7 +139,6 @@ const MagneticButton = React.forwardRef<HTMLElement, MagneticButtonProps>(
           const w = rect.height / 2;
           const x = e.clientX - rect.left - h;
           const y = e.clientY - rect.top - w;
-
           gsap.to(element, {
             x: x * 0.4,
             y: y * 0.4,
@@ -196,12 +193,12 @@ MagneticButton.displayName = "MagneticButton";
 
 const MarqueeItem = () => (
   <div className="flex items-center space-x-12 px-6">
-    <span>Custom Software</span> <span className="text-blue-500">✦</span>
-    <span>Custom Websites</span> <span className="text-cyan-400">✦</span>
-    <span>Mobile Apps</span> <span className="text-blue-500">✦</span>
-    <span>SEO & Visibility</span> <span className="text-cyan-400">✦</span>
-    <span>Google Business</span> <span className="text-blue-500">✦</span>
-    <span>Cloud Infrastructure</span> <span className="text-cyan-400">✦</span>
+    <span>Custom Software</span> <span className="text-[#F2E8D2]/60">✦</span>
+    <span>Custom Websites</span> <span className="text-[#D8C7A8]/60">✦</span>
+    <span>Mobile Apps</span> <span className="text-[#F2E8D2]/60">✦</span>
+    <span>SEO & Visibility</span> <span className="text-[#D8C7A8]/60">✦</span>
+    <span>Google Business</span> <span className="text-[#F2E8D2]/60">✦</span>
+    <span>Cloud Infrastructure</span> <span className="text-[#D8C7A8]/60">✦</span>
   </div>
 );
 
@@ -216,7 +213,6 @@ export default function CinematicFooter() {
     if (!wrapperRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Background Parallax
       gsap.fromTo(
         giantTextRef.current,
         { y: "10vh", scale: 0.8, opacity: 0 },
@@ -234,7 +230,6 @@ export default function CinematicFooter() {
         }
       );
 
-      // Staggered Content Reveal
       gsap.fromTo(
         [headingRef.current, contentRef.current],
         { y: 50, opacity: 0 },
@@ -269,15 +264,15 @@ export default function CinematicFooter() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
-      
+
       <div
         ref={wrapperRef}
         className="relative h-screen w-full"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
-        <footer className="fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[#030712] text-white cinematic-footer-wrapper">
-          
-          {/* Ambient Light & Grid Background */}
+        <footer className="fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[#240003] text-[#F8F1E3] cinematic-footer-wrapper">
+
+          {/* Warm aurora + grid */}
           <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
           <div className="footer-bg-grid absolute inset-0 z-0 pointer-events-none" />
 
@@ -289,15 +284,15 @@ export default function CinematicFooter() {
             AVERZA
           </div>
 
-          {/* 1. Diagonal Sleek Marquee (Top of footer) */}
-          <div className="absolute top-12 left-0 w-full overflow-hidden border-y border-slate-900 bg-[#030712]/60 backdrop-blur-md py-4 z-10 -rotate-2 scale-110 shadow-2xl">
-            <div className="flex w-max animate-footer-scroll-marquee text-xs md:text-sm font-bold tracking-[0.3em] text-[#94A3B8] uppercase">
+          {/* Diagonal Marquee */}
+          <div className="absolute top-12 left-0 w-full overflow-hidden border-y border-[#4D070B] bg-[#240003]/70 backdrop-blur-md py-4 z-10 -rotate-2 scale-110 shadow-2xl">
+            <div className="flex w-max animate-footer-scroll-marquee text-xs md:text-sm font-bold tracking-[0.3em] text-[#B9A98E] uppercase">
               <MarqueeItem />
               <MarqueeItem />
             </div>
           </div>
 
-          {/* 2. Main Center Content */}
+          {/* Main Center Content */}
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-24 w-full max-w-5xl mx-auto">
             <h2
               ref={headingRef}
@@ -306,11 +301,10 @@ export default function CinematicFooter() {
               Build. Transform. Grow.
             </h2>
 
-            {/* Quick Links and Contact Grid */}
             <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-3xl mt-4">
-              {/* Quick Links */}
+              {/* Navigation */}
               <div className="flex flex-col items-center md:items-start">
-                <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Navigation</span>
+                <span className="text-[#D8C7A8] text-xs font-bold uppercase tracking-widest mb-4">Navigation</span>
                 <div className="flex flex-wrap justify-center md:justify-start gap-4">
                   {[
                     { name: "Services", href: "#services" },
@@ -320,53 +314,48 @@ export default function CinematicFooter() {
                     { name: "FAQ", href: "#faq" },
                     { name: "Contact", href: "#contact" },
                   ].map((link) => (
-                    <MagneticButton key={link.name} as="a" href={link.href} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#94A3B8] hover:text-white">
+                    <MagneticButton key={link.name} as="a" href={link.href} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#B9A98E] hover:text-[#F2E8D2]">
                       {link.name}
                     </MagneticButton>
                   ))}
-                  <MagneticButton as="button" onClick={openCookiePreferences} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#94A3B8] hover:text-white">
+                  <MagneticButton as="button" onClick={openCookiePreferences} className="footer-glass-pill px-4 py-2 rounded-full text-xs font-medium text-[#B9A98E] hover:text-[#F2E8D2]">
                     Cookie Settings
                   </MagneticButton>
                 </div>
               </div>
 
-              {/* Contact Info */}
+              {/* Contact */}
               <div className="flex flex-col items-center md:items-start">
-                <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-4">Contact Us</span>
-                <div className="flex flex-col gap-2 items-center md:items-start text-[#94A3B8] text-sm">
-                  <span>Email: <a href="mailto:hello@averza.in" className="hover:text-white transition-colors">hello@averza.in</a></span>
-                  <span>Phone: <a href="tel:+918591484058" className="hover:text-white transition-colors">+91 85914 84058</a></span>
+                <span className="text-[#D8C7A8] text-xs font-bold uppercase tracking-widest mb-4">Contact Us</span>
+                <div className="flex flex-col gap-2 items-center md:items-start text-[#B9A98E] text-sm">
+                  <span>Email: <a href="mailto:averzoteam@gmail.com" className="hover:text-[#F2E8D2] transition-colors">averzoteam@gmail.com</a></span>
+                  <span>Zaid Khan: <a href="tel:+918591484058" className="hover:text-[#F2E8D2] transition-colors">+91 85914 84058</a></span>
                   <span className="text-center md:text-left">Service Areas: Thane, Mumbai, Navi Mumbai, Maharashtra</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* 3. Bottom Bar / Credits */}
+          {/* Bottom Bar */}
           <div className="relative z-20 w-full pb-8 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            {/* Copyright */}
-            <div className="text-[#94A3B8] text-[10px] md:text-xs font-semibold tracking-widest uppercase order-2 md:order-1">
+            <div className="text-[#B9A98E] text-[10px] md:text-xs font-semibold tracking-widest uppercase order-2 md:order-1">
               © 2026 AVERZA. All rights reserved.
             </div>
 
-            {/* "Made with Love" Badge */}
-            <div className="footer-glass-pill px-6 py-3 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default border-slate-800">
-              <span className="text-[#94A3B8] text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted by</span>
-              <span className="text-white font-black text-xs md:text-sm tracking-normal ml-1">AVERZA</span>
+            <div className="footer-glass-pill px-6 py-3 rounded-full flex items-center gap-2 order-1 md:order-2 cursor-default">
+              <span className="text-[#B9A98E] text-[10px] md:text-xs font-bold uppercase tracking-widest">Crafted by</span>
+              <span className="text-[#F2E8D2] font-black text-xs md:text-sm tracking-normal ml-1">AVERZA</span>
             </div>
 
-            {/* Back to top */}
             <MagneticButton
               as="button"
               onClick={scrollToTop}
-              className="w-12 h-12 rounded-full footer-glass-pill flex items-center justify-center text-[#94A3B8] hover:text-white group order-3"
+              className="w-12 h-12 rounded-full footer-glass-pill flex items-center justify-center text-[#B9A98E] hover:text-[#F2E8D2] group order-3"
             >
               <svg className="w-5 h-5 transform group-hover:-translate-y-1.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
               </svg>
             </MagneticButton>
-
           </div>
         </footer>
       </div>

@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#000000",
+    "theme-color": "#240003",
   },
 };
 
@@ -58,6 +58,8 @@ export default function RootLayout({
     "@type": "Organization",
     name: "AVERZA",
     url: SITE_URL,
+    email: "averzoteam@gmail.com",
+    telephone: "+918591484058",
     description:
       "AVERZA is a digital technology and growth studio that helps growing businesses move from manual operations to modern digital systems through custom software, websites, mobile apps, SEO, Google Business optimization, UI/UX design, video content and cloud deployment.",
     knowsAbout: [
@@ -90,7 +92,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#000000]">
+      <body className="min-h-full flex flex-col bg-[#240003]">
         <SmoothScroll>{children}</SmoothScroll>
         <CookieConsent />
       </body>

@@ -102,7 +102,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const subtitle = solutionsSection.querySelector("h2 + p, .text-\\[\\#B9A98E\\]");
+          const subtitle = solutionsSection.querySelector("h2 + p, .text-\\[\\#94A3B8\\]");
           if (subtitle) {
             gsap.fromTo(
               subtitle,
@@ -180,7 +180,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const processSubtitle = processSection.querySelector("p.text-\\[\\#B9A98E\\]");
+          const processSubtitle = processSection.querySelector("p.text-\\[\\#94A3B8\\]");
           if (processSubtitle) {
             gsap.fromTo(
               processSubtitle,
@@ -315,7 +315,7 @@ export default function GSAPAnimations() {
             );
           }
 
-          const pricingSubtitle = pricingSection.querySelector("h2 ~ p, p.text-\\[\\#B9A98E\\]");
+          const pricingSubtitle = pricingSection.querySelector("h2 ~ p, p.text-\\[\\#94A3B8\\]");
           if (pricingSubtitle) {
             gsap.fromTo(
               pricingSubtitle,
@@ -493,7 +493,7 @@ export default function GSAPAnimations() {
             top: -20%;
             width: 1px;
             height: 40%;
-            background: linear-gradient(to bottom, transparent, rgba(0, 240, 255, 0.15), transparent);
+            background: linear-gradient(to bottom, transparent, rgba(101, 1, 8, 0.15), transparent);
             transform: translateX(-50%);
           `;
           speedLineContainer.appendChild(line);
@@ -547,7 +547,7 @@ export default function GSAPAnimations() {
             position: absolute;
             width: ${size}px;
             height: ${size}px;
-            background: ${Math.random() > 0.5 ? "rgba(0, 240, 255, 0.3)" : "rgba(10, 102, 255, 0.3)"};
+            background: ${Math.random() > 0.5 ? "rgba(101, 1, 8, 0.3)" : "rgba(139, 26, 34, 0.3)"};
             border-radius: 50%;
             left: ${Math.random() * 100}%;
             top: ${Math.random() * 100}%;
@@ -578,9 +578,9 @@ export default function GSAPAnimations() {
           left: 0;
           height: 2px;
           width: 0%;
-          background: linear-gradient(90deg, #0A66FF, #00F0FF);
+          background: linear-gradient(90deg, #650108, #8B1A22);
           z-index: 99999;
-          box-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(10, 102, 255, 0.3);
+          box-shadow: 0 0 10px rgba(101, 1, 8, 0.5), 0 0 20px rgba(139, 26, 34, 0.3);
           transition: none;
         `;
         document.body.appendChild(progressBar);

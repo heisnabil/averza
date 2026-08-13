@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// 8 AVERZA services
 const FEATURES = [
   {
     id: "custom-software",
@@ -85,7 +86,8 @@ export default function FeatureCarousel() {
   const [step, setStep] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const currentIndex = ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
+  const currentIndex =
+    ((step % FEATURES.length) + FEATURES.length) % FEATURES.length;
 
   const nextStep = useCallback(() => {
     setStep((prev) => prev + 1);
@@ -105,9 +107,11 @@ export default function FeatureCarousel() {
   const getCardStatus = (index: number) => {
     const diff = index - currentIndex;
     const len = FEATURES.length;
+
     let normalizedDiff = diff;
     if (diff > len / 2) normalizedDiff -= len;
     if (diff < -len / 2) normalizedDiff += len;
+
     if (normalizedDiff === 0) return "active";
     if (normalizedDiff === -1) return "prev";
     if (normalizedDiff === 1) return "next";
@@ -116,9 +120,8 @@ export default function FeatureCarousel() {
 
   return (
     <div className="w-full max-w-7xl mx-auto md:p-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-[#4D070B] bg-[#330005]">
-
-        {/* Left Side: Navigation Chip List — maroon panel */}
+      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-slate-800 bg-[#0F172A]">
+        {/* Left Side: Navigation Chip List — BLUE bg → MAROON bg */}
         <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#650108]">
           <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-[#650108] via-[#650108]/80 to-transparent z-40" />
           <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-[#650108] via-[#650108]/80 to-transparent z-40" />
@@ -126,18 +129,31 @@ export default function FeatureCarousel() {
             {FEATURES.map((feature, index) => {
               const isActive = index === currentIndex;
               const distance = index - currentIndex;
-              const wrappedDistance = wrap(-(FEATURES.length / 2), FEATURES.length / 2, distance);
+              const wrappedDistance = wrap(
+                -(FEATURES.length / 2),
+                FEATURES.length / 2,
+                distance
+              );
+
               const IconComponent = feature.icon;
 
               return (
                 <motion.div
                   key={feature.id}
-                  style={{ height: ITEM_HEIGHT, width: "fit-content" }}
+                  style={{
+                    height: ITEM_HEIGHT,
+                    width: "fit-content",
+                  }}
                   animate={{
                     y: wrappedDistance * ITEM_HEIGHT,
                     opacity: 1 - Math.abs(wrappedDistance) * 0.25,
                   }}
-                  transition={{ type: "spring", stiffness: 90, damping: 22, mass: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 90,
+                    damping: 22,
+                    mass: 1,
+                  }}
                   className="absolute flex items-center justify-start"
                 >
                   <button
@@ -147,18 +163,19 @@ export default function FeatureCarousel() {
                     className={cn(
                       "relative flex items-center gap-4 px-6 md:px-10 lg:px-8 py-3.5 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border cursor-pointer",
                       isActive
-                        ? "bg-[#F2E8D2] text-[#650108] border-[#F2E8D2] z-10"
-                        : "bg-transparent text-[#F2E8D2]/60 border-[#F2E8D2]/20 hover:border-[#F2E8D2]/50 hover:text-[#F2E8D2]"
+                        ? "bg-white text-[#650108] border-white z-10"
+                        : "bg-transparent text-white/60 border-white/20 hover:border-white/40 hover:text-white"
                     )}
                   >
                     <div
                       className={cn(
                         "flex items-center justify-center transition-colors duration-500",
-                        isActive ? "text-[#650108]" : "text-[#F2E8D2]/40"
+                        isActive ? "text-[#650108]" : "text-white/40"
                       )}
                     >
                       <IconComponent className="w-[18px] h-[18px]" />
                     </div>
+
                     <span className="font-normal text-xs md:text-sm tracking-tight whitespace-nowrap uppercase">
                       {feature.label}
                     </span>
@@ -169,8 +186,8 @@ export default function FeatureCarousel() {
           </div>
         </div>
 
-        {/* Right Side: Image Carousel */}
-        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-[#3F0005]/30 flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-[#4D070B]">
+        {/* Right Side: Image and Description Card Carousel */}
+        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-slate-900/30 flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-800">
           <div className="relative w-full max-w-[420px] aspect-[4/5] flex items-center justify-center">
             {FEATURES.map((feature, index) => {
               const status = getCardStatus(index);
@@ -190,15 +207,22 @@ export default function FeatureCarousel() {
                     zIndex: isActive ? 20 : isPrev || isNext ? 10 : 0,
                     pointerEvents: isActive ? "auto" : "none",
                   }}
-                  transition={{ type: "spring", stiffness: 260, damping: 25, mass: 0.8 }}
-                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-[#240003] bg-[#240003] origin-center"
+                  transition={{
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 25,
+                    mass: 0.8,
+                  }}
+                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-[#030712] bg-[#030712] origin-center"
                 >
                   <img
                     src={feature.image}
                     alt={`${feature.label} — AVERZA digital service`}
                     className={cn(
                       "w-full h-full object-cover transition-all duration-700",
-                      isActive ? "grayscale-0 blur-0" : "grayscale blur-[2px] brightness-75"
+                      isActive
+                        ? "grayscale-0 blur-0"
+                        : "grayscale blur-[2px] brightness-75"
                     )}
                   />
 
@@ -208,12 +232,13 @@ export default function FeatureCarousel() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute inset-x-0 bottom-0 p-8 pt-32 bg-gradient-to-t from-[#240003]/95 via-[#240003]/50 to-transparent flex flex-col justify-end pointer-events-none"
+                        className="absolute inset-x-0 bottom-0 p-8 pt-32 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end pointer-events-none"
                       >
-                        <div className="bg-[#650108] text-[#F2E8D2] px-3 py-1 rounded-full text-[10px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3">
+                        {/* Services Badge — BLUE bg → MAROON bg */}
+                        <div className="bg-[#650108] text-white px-3 py-1 rounded-full text-[10px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3">
                           {index + 1} • SERVICES
                         </div>
-                        <p className="text-[#F8F1E3] font-normal text-lg md:text-xl leading-snug drop-shadow-md tracking-tight">
+                        <p className="text-white font-normal text-lg md:text-xl leading-snug drop-shadow-md tracking-tight">
                           {feature.description}
                         </p>
                       </motion.div>
@@ -226,8 +251,9 @@ export default function FeatureCarousel() {
                       isActive ? "opacity-100" : "opacity-0"
                     )}
                   >
-                    <div className="w-2 h-2 rounded-full bg-[#F2E8D2] shadow-[0_0_8px_rgba(242,232,210,0.6)]" />
-                    <span className="text-[#F2E8D2]/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
+                    {/* Brand Dot — BLUE bg → MAROON bg */}
+                    <div className="w-2 h-2 rounded-full bg-[#8B1A22] shadow-[0_0_10px_#8B1A22]" />
+                    <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
                       AVERZA
                     </span>
                   </div>

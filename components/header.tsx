@@ -36,20 +36,20 @@ export default function Header() {
           className={cn(
             "mx-auto mt-4 px-6 transition-all duration-500 rounded-2xl border backdrop-blur-md",
             isScrolled
-              ? "bg-[#240003]/95 border-[#4D070B]/80 max-w-4xl py-2.5 shadow-lg shadow-black/40"
-              : "bg-[#240003]/60 border-[#4D070B]/40 max-w-5xl py-3.5"
+              ? "bg-black/95 border-slate-800/80 max-w-4xl py-2.5 shadow-lg shadow-black/40"
+              : "bg-black/50 border-slate-900/40 max-w-5xl py-3.5"
           )}
         >
           <div className="relative grid grid-cols-2 lg:grid-cols-3 items-center w-full">
-            {/* Column 1: Logo and Name */}
+            {/* Column 1: Logo and Name (Left-aligned) */}
             <div className="flex justify-start items-center min-w-0">
               <Link href="/" className="flex items-center space-x-3 min-w-0 group">
                 {/* Premium Logo Container */}
                 <div className="relative flex-shrink-0">
-                  {/* Outer glow ring */}
-                  <div className="absolute -inset-1 bg-gradient-to-tr from-[#650108]/30 via-[#F2E8D2]/10 to-[#7A0A12]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  {/* Logo wrapper */}
-                  <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-[#F2E8D2]/10 bg-[#3F0005] group-hover:border-[#F2E8D2]/25 transition-all duration-500 shadow-lg shadow-black/50">
+                  {/* Outer glow ring — BLUE gradient → MAROON gradient */}
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-[#650108]/30 via-[#8B1A22]/20 to-[#520006]/30 rounded-xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Logo wrapper with premium border */}
+                  <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-white/10 bg-[#0a0f1e] group-hover:border-[#8B1A22]/40 transition-all duration-500 shadow-lg shadow-black/50">
                     <Image
                       src="/logos/Averza.jpg"
                       alt="AVERZA logo"
@@ -58,29 +58,31 @@ export default function Header() {
                       className="w-full h-full object-cover scale-[1.15]"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#3F0005]/30 via-transparent to-transparent pointer-events-none" />
+                    {/* Subtle inner overlay to blend edges */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e]/30 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
                 {/* Brand text */}
                 <div className="flex flex-col leading-none flex-shrink-0">
-                  <span className="text-sm sm:text-[15px] font-black tracking-tight text-[#F8F1E3] uppercase">
+                  <span className="text-sm sm:text-[15px] font-black tracking-tight text-white uppercase">
                     AVERZA
                   </span>
-                  <span className="text-[7px] sm:text-[8px] font-semibold tracking-[0.14em] text-[#B9A98E] uppercase mt-0.5">
+                  {/* Subtitle — BLUE (#38BDF8) → MAROON (#8B1A22) */}
+                  <span className="text-[7px] sm:text-[8px] font-semibold tracking-[0.14em] text-[#8B1A22]/70 uppercase mt-0.5">
                     Build · Transform · Grow
                   </span>
                 </div>
               </Link>
             </div>
 
-            {/* Column 2: Desktop Menu */}
+            {/* Column 2: Desktop Menu links (Centered) */}
             <div className="hidden lg:flex justify-center">
               <ul className="flex gap-8 text-sm">
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="text-[#B9A98E] hover:text-[#F2E8D2] font-medium block duration-150 transition-colors"
+                      className="text-slate-400 hover:text-white font-medium block duration-150 transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -89,28 +91,29 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* Column 3: Mobile Toggle */}
+            {/* Column 3: Spacer / Mobile Toggle Button (Right-aligned) */}
             <div className="flex justify-end items-center">
+              {/* Mobile Menu Button — BLUE hover → MAROON hover */}
               <button
                 onClick={() => setMenuState(!menuState)}
                 aria-label={menuState ? "Close Menu" : "Open Menu"}
-                className="relative z-20 block cursor-pointer p-2 lg:hidden text-[#D8C7A8] hover:text-[#F2E8D2]"
+                className="relative z-20 block cursor-pointer p-2 lg:hidden text-white hover:text-[#8B1A22]"
               >
                 {menuState ? <X className="size-6" /> : <Menu className="size-6" />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Dropdown */}
+          {/* Mobile Dropdown Panel */}
           {menuState && (
-            <div className="lg:hidden mt-2 pb-6 border-t border-[#4D070B] pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="lg:hidden mt-2 pb-6 border-t border-slate-800 pt-4 animate-in fade-in slide-in-from-top-2 duration-200">
               <ul className="space-y-4 text-base">
                 {menuItems.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.href}
                       onClick={() => setMenuState(false)}
-                      className="text-[#D8C7A8] hover:text-[#F2E8D2] block font-medium duration-150"
+                      className="text-slate-300 hover:text-white block font-medium duration-150"
                     >
                       {item.name}
                     </Link>

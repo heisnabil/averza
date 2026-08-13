@@ -13,7 +13,7 @@ import GSAPAnimations from "@/components/gsap-animations";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#000000] font-sans antialiased text-white selection:bg-[#2563EB]/30 overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#000000] font-sans antialiased text-white selection:bg-[#650108]/30 overflow-x-hidden">
       {/* Header Navigation */}
       <Header />
 

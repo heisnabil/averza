@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#240003",
+    "theme-color": "#000000",
   },
 };
 
@@ -92,7 +92,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#240003]">
+      <body className="min-h-full flex flex-col bg-[#000000]">
         <SmoothScroll>{children}</SmoothScroll>
         <CookieConsent />
       </body>

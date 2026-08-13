@@ -10,45 +10,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-// AVERZA Maroon + Cream theme for MUI Stepper
-const averzaTheme = createTheme({
+// Dark Theme for MUI Stepper to match premium theme
+const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#F2E8D2",
+      main: "#650108",
     },
     background: {
-      default: "#240003",
-      paper: "#330005",
+      default: "#000000",
+      paper: "#0F172A",
     },
     text: {
-      primary: "#F8F1E3",
-      secondary: "#B9A98E",
-    },
-  },
-  components: {
-    MuiStepIcon: {
-      styleOverrides: {
-        root: {
-          color: "#4D070B",
-          "&.Mui-active": {
-            color: "#650108",
-          },
-          "&.Mui-completed": {
-            color: "#650108",
-          },
-        },
-        text: {
-          fill: "#F2E8D2",
-        },
-      },
-    },
-    MuiStepConnector: {
-      styleOverrides: {
-        line: {
-          borderColor: "#4D070B",
-        },
-      },
+      primary: "#FFFFFF",
+      secondary: "#94A3B8",
     },
   },
 });
@@ -80,11 +55,11 @@ export default function ProcessStepper() {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
-    setActiveStep((prev) => prev + 1);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep((prev) => prev - 1);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleReset = () => {
@@ -92,14 +67,14 @@ export default function ProcessStepper() {
   };
 
   return (
-    <ThemeProvider theme={averzaTheme}>
-      <section className="bg-[#240003] py-24 border-t border-[#4D070B]">
+    <ThemeProvider theme={darkTheme}>
+      <section className="bg-[#000000] py-24 border-t border-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#F8F1E3] mb-4">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4">
               How We Work
             </h2>
-            <p className="text-[#B9A98E] max-w-lg mx-auto text-base sm:text-lg">
+            <p className="text-[#94A3B8] max-w-lg mx-auto text-base sm:text-lg">
               A clear, structured process designed to take your project from idea to a working digital product.
             </p>
           </div>
@@ -111,45 +86,30 @@ export default function ProcessStepper() {
                   <StepLabel
                     optional={
                       index === 4 ? (
-                        <Typography variant="caption" sx={{ color: "#B9A98E" }}>Final step</Typography>
+                        <Typography variant="caption">Final step</Typography>
                       ) : null
                     }
                   >
-                    <span className="text-[#F8F1E3] text-base sm:text-lg font-semibold">
+                    <span className="text-white text-base sm:text-lg font-semibold">
                       {step.label}
                     </span>
                   </StepLabel>
                   <StepContent>
-                    <Typography sx={{ color: "#B9A98E", fontSize: "0.9rem", lineHeight: 1.7, mb: 2 }}>
+                    <Typography className="text-[#94A3B8] text-sm sm:text-base mb-4 leading-relaxed">
                       {step.description}
                     </Typography>
                     <Box sx={{ mb: 2 }}>
                       <Button
                         variant="contained"
                         onClick={handleNext}
-                        sx={{
-                          mt: 1,
-                          mr: 1,
-                          textTransform: "none",
-                          borderRadius: "8px",
-                          bgcolor: "#650108",
-                          color: "#F2E8D2",
-                          "&:hover": { bgcolor: "#7A0A12" },
-                        }}
+                        sx={{ mt: 1, mr: 1, textTransform: "none", borderRadius: "8px" }}
                       >
                         {index === steps.length - 1 ? "Finish" : "Continue"}
                       </Button>
                       <Button
                         disabled={index === 0}
                         onClick={handleBack}
-                        sx={{
-                          mt: 1,
-                          mr: 1,
-                          textTransform: "none",
-                          borderRadius: "8px",
-                          color: "#B9A98E",
-                          "&:hover": { color: "#F2E8D2" },
-                        }}
+                        sx={{ mt: 1, mr: 1, textTransform: "none", borderRadius: "8px", color: "#94A3B8" }}
                       >
                         Back
                       </Button>
@@ -159,25 +119,11 @@ export default function ProcessStepper() {
               ))}
             </Stepper>
             {activeStep === steps.length && (
-              <Box sx={{
-                p: 3,
-                textAlign: "center",
-                bgcolor: "#330005",
-                borderRadius: "12px",
-                border: "1px solid #4D070B",
-                mt: 2,
-              }}>
-                <Typography sx={{ color: "#F8F1E3", fontWeight: 500, mb: 2 }}>
+              <Box sx={{ p: 3, textAlign: "center", bgcolor: "#0F172A", borderRadius: "12px", border: "1px solid #1E293B", mt: 2 }}>
+                <Typography className="text-white font-medium mb-3">
                   That's how we work — ready to start your project?
                 </Typography>
-                <Button
-                  onClick={handleReset}
-                  sx={{
-                    textTransform: "none",
-                    color: "#F2E8D2",
-                    "&:hover": { color: "#F8F1E3" },
-                  }}
-                >
+                <Button onClick={handleReset} sx={{ textTransform: "none" }}>
                   View Process Again
                 </Button>
               </Box>

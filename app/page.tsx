@@ -10,7 +10,6 @@ import FAQs from "@/components/faqs-1";
 import ContactSection from "@/components/contact-section";
 import CinematicFooter from "@/components/motion-footer";
 import GSAPAnimations from "@/components/gsap-animations";
-import WhyAverza from "@/components/why-averza";
 
 export default function Home() {
   return (
@@ -46,10 +45,7 @@ export default function Home() {
         <FeatureCarousel />
       </section>
 
-      {/* 4. Why AVERZA */}
-      <WhyAverza />
-
-      {/* 5. Process */}
+      {/* 4. Process */}
       <section
         id="process"
         aria-label="How AVERZA works — our project process"

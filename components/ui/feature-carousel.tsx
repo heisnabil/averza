@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Code,
@@ -21,6 +22,7 @@ const FEATURES = [
     label: "Custom Software Development",
     icon: Code,
     image: "/images/feature-1.jpg",
+    alt: "Custom software development for businesses in Thane and Mumbai — AVERZA",
     description: "Business software designed around your actual workflows — CRM, inventory, booking and management systems.",
   },
   {
@@ -28,6 +30,7 @@ const FEATURES = [
     label: "Custom Website Development",
     icon: Globe,
     image: "/images/feature-2.jpg",
+    alt: "Custom website development for local businesses in Mumbra, Thane and Navi Mumbai — AVERZA",
     description: "Fast, responsive and SEO-ready websites built to represent your business and generate leads.",
   },
   {
@@ -35,6 +38,7 @@ const FEATURES = [
     label: "Mobile & Android Apps",
     icon: Smartphone,
     image: "/images/feature-3.jpg",
+    alt: "Android and mobile app development for businesses in Mumbai and Thane — AVERZA",
     description: "Mobile applications built for your customers, your team and your business operations.",
   },
   {
@@ -42,6 +46,7 @@ const FEATURES = [
     label: "SEO & Search Visibility",
     icon: Search,
     image: "/images/feature-4.png",
+    alt: "Local SEO and technical SEO services for businesses in Thane, Mumbra and Navi Mumbai — AVERZA",
     description: "Help the right customers discover your business on Google through local and technical SEO.",
   },
   {
@@ -49,6 +54,7 @@ const FEATURES = [
     label: "Google Business Profile",
     icon: MapPin,
     image: "/images/feature-5.png",
+    alt: "Google Business Profile setup and optimization for local businesses — AVERZA",
     description: "Establish a stronger local presence across Google Search and Google Maps.",
   },
   {
@@ -56,6 +62,7 @@ const FEATURES = [
     label: "Product Design & UI/UX",
     icon: Palette,
     image: "/images/feature-6.png",
+    alt: "Product design and UI/UX services for digital products and business apps — AVERZA",
     description: "Design digital products that are clear, useful and easy to use — from wireframes to design systems.",
   },
   {
@@ -63,6 +70,7 @@ const FEATURES = [
     label: "Reels & Video Editing",
     icon: Video,
     image: "/images/feature-7.jpg",
+    alt: "Instagram reel and business video editing services in Mumbai and Thane — AVERZA",
     description: "Turn your products, services and brand story into engaging short-form video content.",
   },
   {
@@ -70,6 +78,7 @@ const FEATURES = [
     label: "Cloud & Deployment",
     icon: Cloud,
     image: "/images/feature-8.jpg",
+    alt: "Cloud deployment and hosting services for web applications and software — AVERZA",
     description: "Take your digital product from development to a reliable, secure production environment.",
   },
 ];
@@ -215,15 +224,19 @@ export default function FeatureCarousel() {
                   }}
                   className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-[#030712] bg-[#030712] origin-center"
                 >
-                  <img
+                  <Image
                     src={feature.image}
-                    alt={`${feature.label} — AVERZA digital service`}
+                    alt={feature.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 420px"
                     className={cn(
-                      "w-full h-full object-cover transition-all duration-700",
+                      "object-cover transition-all duration-700",
                       isActive
                         ? "grayscale-0 blur-0"
                         : "grayscale blur-[2px] brightness-75"
                     )}
+                    priority={index === 0}
+                    loading={index === 0 ? "eager" : "lazy"}
                   />
 
                   <AnimatePresence>

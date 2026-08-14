@@ -111,14 +111,14 @@ export async function POST(request: Request) {
     const toEmail = "averzoteam@gmail.com";
 
     // 6. Formulate email metadata
-    const fromAddress = `AVERZO Website <${senderEmail}>`;
+    const fromAddress = `AVERZA Website <${senderEmail}>`;
     const emailSubject = safeService
-      ? `New [${safeService}] Enquiry — AVERZO`
-      : "New Project Enquiry — AVERZO";
+      ? `New [${safeService}] Enquiry — AVERZA`
+      : "New Project Enquiry — AVERZA";
 
     // Plain text fallback body
     const textFallback = `
-AVERZO WEBSITE ENQUIRY
+AVERZA WEBSITE ENQUIRY
 -----------------------
 Name: ${name.trim()}
 Business Name: ${businessName ? businessName.trim() : "N/A"}
@@ -130,7 +130,7 @@ Service Required: ${service ? service.trim() : "N/A"}
 Message:
 ${message.trim()}
 
-Submitted from: AVERZO Website
+Submitted from: AVERZA Website
 `;
 
     // Professional HTML email body (mobile-friendly and branded)
@@ -250,7 +250,7 @@ Submitted from: AVERZO Website
   <div class="wrapper">
     <div class="container">
       <div class="header">
-        <h1>AVERZO</h1>
+        <h1>AVERZA</h1>
         <p>Build. Transform. Grow.</p>
         <div class="tagline">Digital Technology & Growth Studio</div>
       </div>
@@ -287,7 +287,7 @@ Submitted from: AVERZO Website
         <div class="message-box">${safeMessage}</div>
       </div>
       <div class="footer">
-        Submitted from: AVERZO Website
+        Submitted from: AVERZA Website
       </div>
     </div>
   </div>

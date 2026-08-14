@@ -62,12 +62,12 @@ export default function LogoCloud() {
             Our Tech Stack
           </span>
         </div>
-        <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white mb-2">
           Technologies We{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#650108] via-[#8B1A22] to-[#520006]">
             Build With
           </span>
-        </h3>
+        </h2>
         <p className="text-sm text-slate-400 max-w-md mx-auto">
           Modern tools, frameworks and platforms powering the digital systems we create
         </p>
@@ -85,7 +85,7 @@ export default function LogoCloud() {
         </div>
       </div>
 
-      <style jsx global>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .marquee-track {
           width: max-content;
           animation: marquee-scroll 40s linear infinite;
@@ -106,7 +106,7 @@ export default function LogoCloud() {
             animation: none;
           }
         }
-      `}</style>
+      ` }} />
     </section>
   );
 }

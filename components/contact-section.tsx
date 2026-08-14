@@ -196,10 +196,11 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    <label htmlFor="contact-name" className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                       Full Name
                     </label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       placeholder="e.g. John Doe"
@@ -209,10 +210,11 @@ export default function ContactSection() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    <label htmlFor="contact-email" className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                       Email Address
                     </label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       placeholder="e.g. john@company.com"
@@ -224,10 +226,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <label htmlFor="contact-company" className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                     Business Name
                   </label>
                   <input
+                    id="contact-company"
                     type="text"
                     required
                     placeholder="e.g. Acme Café"
@@ -238,10 +241,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  <label htmlFor="contact-message" className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
                     Message
                   </label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     placeholder="Briefly describe your business operations and what you'd like to build or transform..."
                     value={formData.message}

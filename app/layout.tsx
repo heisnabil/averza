@@ -80,6 +80,7 @@ export const metadata: Metadata = {
   },
   other: {
     "theme-color": "#000000",
+    "msvalidate.01": "7BF94FBF853E73918BB94B35FAC11AC6",
   },
 };
 

@@ -39,6 +39,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/logos/Averza.jpg", type: "image/jpeg" },
+      { url: "/icon.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/logos/Averza.jpg",
+    apple: "/apple-icon.jpg",
+  },
   openGraph: {
     title: "AVERZA | Digital Technology & Growth Studio",
     description:

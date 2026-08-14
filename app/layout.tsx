@@ -95,9 +95,9 @@ function buildJsonLd() {
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/icon-512.png`,
-      width: 512,
-      height: 512,
+      url: `${SITE_URL}/logos/Averza-emblem.png`,
+      width: 1024,
+      height: 1024,
     },
     image: OG_IMAGE,
     email: "averzoteam@gmail.com",

@@ -20,7 +20,7 @@ const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const metadata: Metadata = {
   title: "AVERZA | Digital Technology & Growth Studio",
   description:
-    "AVERZA helps growing businesses build custom websites, software, mobile apps, SEO, Google Business profiles, digital products and cloud solutions. Serving Mumbra, Thane, Navi Mumbai and Mumbai.",
+    "AVERZA builds custom websites, software, mobile apps, SEO and cloud solutions for growing businesses in Thane, Mumbai and Navi Mumbai.",
   keywords: [
     "AVERZA",
     "digital technology studio",
@@ -41,16 +41,18 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logos/Averza.jpg", type: "image/jpeg" },
-      { url: "/icon.jpg", type: "image/jpeg" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/logos/Averza.jpg",
-    apple: "/apple-icon.jpg",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "AVERZA | Digital Technology & Growth Studio",
     description:
-      "Custom websites, software, mobile apps, SEO, Google Business, UI/UX, video content and cloud deployment for growing businesses in Mumbra, Thane, Navi Mumbai and Mumbai.",
+      "Custom websites, software, mobile apps, SEO and cloud solutions for growing businesses in Thane & Mumbai.",
     url: SITE_URL,
     siteName: "AVERZA",
     locale: "en_IN",
@@ -68,7 +70,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AVERZA | Digital Technology & Growth Studio",
     description:
-      "Custom websites, software, mobile apps, SEO, Google Business, UI/UX, video content and cloud deployment for growing businesses.",
+      "Custom websites, software, mobile apps, SEO & cloud solutions for growing businesses in Thane, Mumbai & Navi Mumbai.",
     images: [OG_IMAGE],
   },
   robots: {
@@ -93,9 +95,9 @@ function buildJsonLd() {
     url: SITE_URL,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE_URL}/logos/Averza.jpg`,
-      width: 200,
-      height: 200,
+      url: `${SITE_URL}/icon-512.png`,
+      width: 512,
+      height: 512,
     },
     image: OG_IMAGE,
     email: "averzoteam@gmail.com",

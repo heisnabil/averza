@@ -51,11 +51,11 @@ export default function Header() {
                   {/* Logo wrapper with premium border */}
                   <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden border border-white/10 bg-[#0a0f1e] group-hover:border-[#8B1A22]/40 transition-all duration-500 shadow-lg shadow-black/50">
                     <Image
-                      src="/logos/Averza-emblem.png"
+                      src="/logos/Averza.jpg"
                       alt="AVERZA logo"
                       width={40}
                       height={40}
-                      className="w-full h-full object-cover p-0.5"
+                      className="w-full h-full object-cover scale-[1.15]"
                       priority
                     />
                     {/* Subtle inner overlay to blend edges */}

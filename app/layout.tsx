@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "google761a92658f92efe9",
+  },
   other: {
     "theme-color": "#000000",
   },
